@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[pptang | ApprenticeShip]]></title>
+  
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://yoursite.com/"/>
+  <updated>2015-04-10T14:04:00.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name><![CDATA[Bible Tang]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Open Source Tools]]></title>
+    <link href="http://yoursite.com/2015/04/10/Open-Source-Tools/"/>
+    <id>http://yoursite.com/2015/04/10/Open-Source-Tools/</id>
+    <published>2015-04-10T12:34:53.000Z</published>
+    <updated>2015-04-10T14:04:00.000Z</updated>
+    <content type="html"><![CDATA[<p>Since I joined Alpha-Info, I have approached several useful and cutting-edge tools. The best thing among them is that they are all open sources project, which is really good for start-up company. I’m gonna list all tools and briefly sum up where you can use them, although I don’t have full knowledge of some of them.</p>
+<h1 id="1-_Thrift">1. <a href="https://thrift.apache.org/" target="_blank" rel="external">Thrift</a></h1><p>  It’s an amazing tool which facilitates communication between client and server. Take the project I’m working on as an example, our server code is implemented using C++, while client end supports Android and iOS. Traditionally, we should deal with low-level socket and HTTP package. Also, different platforms like Android and iOS have to establish their own channels for sending requests. Thanks god we have <em>Thrift</em> ! All you should do is write a file which defines required class, member functions, variables… and so on. Then, you can generate server and client end codes simultaneously. Anything else? No, we’re all good here.<br>  Using same example above :</p>
+<p>  a. define API in base.thrift file<br>  b. Supposed to use C++ for server code</p>
+<pre><code>thrift -r <span class="comment">--gen cpp base.thrift</span>
+</code></pre><p>   -&gt; which generates .h &amp; .cpp files<br>  c. java for first client code (Android)</p>
+<pre><code>thrift -r <span class="comment">--gen java base.thrift</span>
+</code></pre><p>   -&gt; which generates .java files<br>  d. cocoa for second client code (iOS)</p>
+<pre><code>thrift -r <span class="comment">--gen cocoa base.thrift</span>
+</code></pre><p>   -&gt; which generates .h &amp; .m files</p>
+<p>  Those generated files contains basic implementation of low-level communicating code. Thus, developers can just concentrate on service itself. </p>
+<h1 id="2-_Scrapy">2.  <a href="http://scrapy.org/" target="_blank" rel="external">Scrapy</a></h1><p>  Scrapy is a python-based framework for web crawling. In our project, we use crawler to fetch some image and title data of clothes from e-comm websites.</p>
+<p>  The below roughly introduce basic operations step by step:</p>
+<p>  a. installed scrapy package using pip install<br>  b. new a scrapy project</p>
+<pre><code>scrapy startproject <span class="tag">&lt;<span class="title">project_name</span>&gt;</span>
+</code></pre><p>  c. go to the deep folder named “spiders” and create your “spider.py” here<br>  d. At the first line of your class in spider.py, set “name” attribute</p>
+<pre><code><span class="property">name</span> = <span class="string">"example"</span>
+</code></pre><p>  e. Then, after you’ve done implementing your spider.py code, type below   command in the terminal :</p>
+<pre><code><span class="title">scrapy</span> crawl example
+</code></pre><p>  Then your program will start crawling!</p>
+<h1 id="3-_MongoDB">3.  <a href="https://www.mongodb.org/" target="_blank" rel="external">MongoDB</a></h1><p>  MongoDB is the No-SQL database, which is more flexible and scalable than SQL database.</p>
+<p>  The only thing I’ve done with MonogoDB is to store data fetched by Scrapy into MongoDB. Still need tons of efforts on it.</p>
+<h1 id="4-_Docker">4.  <a href="https://www.docker.com/" target="_blank" rel="external">Docker</a></h1><p>  To my little knowledge, with Docker, we don’t need to install virtual machine anymore. In the past, if we want to run two services (let’s say mongoDB and redis server), we may need to install two VM with two OS on our physical machine (with Host OS on it). Docker is a tool we can pack each application into each “container”, which can be run as image on kernel level. What’s more, for cross-platform development, we don’t need to build environment for each machine. All we should do is install Docker, pass built image machine by machine, and every machine is equipped with the environment we want.</p>
+<h1 id="5-_CMake">5.  <a href="http://www.cmake.org/" target="_blank" rel="external">CMake</a></h1><p>  CMake can help you define dependencies, static libraries(.lib, .a), dynamic libraries(.so or .dll) which are required by source codes in a file. Then, you just cmake the project with CMakeFileList.txt inside and this tool will generate makeFile which links everything for you (you can even choose the kind of project you’d like to generate, XCode for instance.) Eventually, just make makeFile for executable binaries.</p>
+<h1 id="6-_Redis">6.  <a href="http://redis.io/" target="_blank" rel="external">Redis</a></h1><p>  As shown on the official website,</p>
+<blockquote>
+<p>Redis is an open source, BSD licensed, advanced key-value cache and store. It is often referred to as a data structure server since keys can contain strings, hashes, lists, sets, sorted sets, bitmaps and hyperloglogs.</p>
+</blockquote>
+<h1 id="7-_HomeBrew">7.  <a href="http://brew.sh/" target="_blank" rel="external">HomeBrew</a></h1><p>  HomeBrew can assist Mac User install some libraries and packages, just like yum、apt-get in other linux-based system.</p>
+<h1 id="8-_Actor">8.  <a href="http://actor-framework.org/" target="_blank" rel="external">Actor</a></h1><p>  Don’t know what it can do yet.</p>
+<h1 id="9-_Redmine">9.  <a href="http://www.redmine.org/" target="_blank" rel="external">Redmine</a></h1><p>  For project management, you can assign tasks to members, trace bugs or issues, list problems…and so on.</p>
+<h1 id="10-_HipChat">10. <a href="https://www.hipchat.com/" target="_blank" rel="external">HipChat</a></h1><p>  Group chatting tool which integrates with Gits. Any member pushing code to the Git will show as message on the chatting window.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Since I joined Alpha-Info, I have approached several useful and cutting-edge tools. The best thing among them is that they are all open s]]>
+    </summary>
+    
+      <category term="Tools" scheme="http://yoursite.com/tags/Tools/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android Design Pattern]]></title>
+    <link href="http://yoursite.com/2015/04/06/Android-Design-Pattern/"/>
+    <id>http://yoursite.com/2015/04/06/Android-Design-Pattern/</id>
+    <published>2015-04-06T15:04:15.000Z</published>
+    <updated>2015-04-06T15:16:01.000Z</updated>
+    <content type="html"><![CDATA[<p>Look around some articles on the net, they said the reason why</p>
+<p>Android dominates a big part of mobile OS market share is the fact</p>
+<p>that it integrates Design patterns into its design philosophy. </p>
+<p>Most of them are out of my knowledge, so I list them here and </p>
+<p>will acquire all patterns, one by one.</p>
+<ul>
+<li>Template Method</li>
+<li>Factory Method</li>
+<li>Observer </li>
+<li>Abstract Factory</li>
+<li>Adapter </li>
+<li>Composite</li>
+<li>Strategy</li>
+<li>State</li>
+<li>Proxy</li>
+<li>Bridge</li>
+<li>Iterator</li>
+<li>Mediator</li>
+<li>Fa?ade</li>
+</ul>
+<p>According to last post, I should do things in new ways.</p>
+<p>The below is the SOP of learning design patterns for android:</p>
+<ol>
+<li>Understand the theory of certain pattern</li>
+<li>Write a simple (really shoule be simple) test program using the pattern</li>
+<li>Push to Github with catogories</li>
+<li>Write details for each pattern and post them to this blog.</li>
+</ol>
+<p>Be responsible to yourself.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Look around some articles on the net, they said the reason why</p>
+<p>Android dominates a big part of mobile OS market share is the fact<]]>
+    </summary>
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[現在的缺點]]></title>
+    <link href="http://yoursite.com/2015/04/06/Weakness/"/>
+    <id>http://yoursite.com/2015/04/06/Weakness/</id>
+    <published>2015-04-06T14:30:41.000Z</published>
+    <updated>2015-04-06T15:00:59.000Z</updated>
+    <content type="html"><![CDATA[<p>從這篇開始分享看學徒模式這本書，邊學邊做的心得，</p>
+<p>首先整理了開始寫Android約半年發現自己的弱點，</p>
+<p>讓自己以後回來檢視是否有改善。</p>
+<p><strong>1. 寫出來的程式再利用性很差</strong></p>
+<p>  舉例來說，有幾個Fragment要呈現的畫面幾乎一樣，</p>
+<p>  卻沒有寫成一個通用的Fragment重複使用，失去Fragment的原意。</p>
+<p>  發生這樣的原因應該是寫的時候缺乏彈性，其實也不難，</p>
+<p>  常常太急著實作，這樣反而缺乏效率，又多了很多重複的垃圾，</p>
+<p>  要變高手得要讓思考及設計的時間遠超過實作的時間才行。</p>
+<p><strong>2. 寫出來的程式可讀性很差</strong></p>
+<p>  大學時讀的課本裡常強調“可讀性”、“再利用“都覺得好懂但抽象，</p>
+<p>  實際做一個大型專案才真正體悟到這些概念的重要性，常常回頭看自己寫的程式</p>
+<p>  都不懂自己當初是怎麼想的，這樣反而要花更多時間，所以在寫的時候還是一句話，</p>
+<p>  不 要 急！我很容易為了想要讓畫面快點出來，就隨便先寫到跑得過，然後跑過之後</p>
+<p>  又懶得去改了。。。這點一定要改掉。</p>
+<p><strong>3. 不喜歡讀原始🐎</strong></p>
+<p>  也是因為求快，要完成某功能先去查open source的library，拿來用之前</p>
+<p>  研究得不夠透徹，導致程式碼變得很沒有彈性，最後會去遷就library讓自己的</p>
+<p>  架構變得很醜，並局限於library提供的功能，so go read fucking source code!</p>
+<p><strong>4. 沒有一致的變數命名習慣</strong></p>
+<p>  看了三叔的code才發現程式碼的命名及格式可以大大提高程式碼可讀性，</p>
+<p>  甚至可以大量減少註解，有耐心的排版及養成一致命名習慣，最好是參考官方文件的命名方式。</p>
+<p><strong>5. 不喜歡寫測試程式碼</strong></p>
+<p>  學新的語言時，傾向一直讀語法而沒去寫測試程式，用Open Source Library時，常常直接套</p>
+<p>  用在Project而沒先寫測試程式完整理解Library內容，雖然還不是很懂Test Driven Development，</p>
+<p>  但看過的文章表示這是一個開發的趨勢，趕緊去研究這塊！</p>
+<p><strong>6. 程式碼管理得很爛</strong></p>
+<p>  做Project的時候沒有習慣push到github，要改程式的時候也沒有先備份，全部亂成一團，</p>
+<p>  找不到之前自己寫的程式。</p>
+<p>  管理好自己的github對職涯發展很有幫助。</p>
+<p><strong>7. 不喜歡紀錄</strong></p>
+<p>  懶得寫blog，推給沒有時間，但其實寫一篇blog其實不用一小時，卻可以讓學徒期的成長更快。<br>  懶得寫文件，推給沒有時間，但寫文件可以讓自己思路更清楚，也可以減少之後架環境或查詢的時間。<br>  懶得分享，分享一個新的技術實作或概念可以從與其他programmers的互動中建立正向迴路。</p>
+<p>壞習慣要改不是設立一個deadline然後一次全部就都行了，</p>
+<p>遇到的時候要想到自己列出來的這些點，然後沒有藉口的直接照做。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>從這篇開始分享看學徒模式這本書，邊學邊做的心得，</p>
+<p>首先整理了開始寫Android約半年發現自己的弱點，</p>
+<p>讓自己以後回來檢視是否有改善。</p>
+<p><strong>1. 寫出來的程式再利用性很差</strong></p>
+<p>  舉例來說，有]]>
+    </summary>
+    
+      <category term="學徒模式" scheme="http://yoursite.com/tags/%E5%AD%B8%E5%BE%92%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android background processing task]]></title>
+    <link href="http://yoursite.com/2014/12/11/AsyncTask/"/>
+    <id>http://yoursite.com/2014/12/11/AsyncTask/</id>
+    <published>2014-12-11T01:43:43.000Z</published>
+    <updated>2015-04-06T15:03:06.000Z</updated>
+    <content type="html"><![CDATA[<p>In Android development, you can’t execute a task longer than 5 secs on main </p>
+<p>thread, so that’s the reason why we need asyncronized task.</p>
+<p>Google provided <strong>Thread</strong>, <strong>AsyncTask</strong>, <strong>Service</strong> for developers, I’ll </p>
+<p>briefly introduce <strong>Thread</strong> and <strong>AsyncTask</strong> in this article. Also, there is </p>
+<p>useful mechanism reffered to <strong>ReentrantLock</strong>. I’ll get to it at the end.</p>
+<h1 id="1-_Thread"><strong>1. Thread</strong></h1><p><em>Timing</em></p>
+<ul>
+<li>Long task in general</li>
+<li>For tasks in parallel</li>
+</ul>
+<p><em>Drawbacks in our app</em></p>
+<p> Because threads can be run in parallel, task like “send message” will result </p>
+<p> in “out of sequence response” error. Actually, it can be resolved using </p>
+<p> “Reentrant Lock”. We’ll get to it later in the article.</p>
+<p>Call this on any thread :</p>
+<pre><code><span class="tag">new</span> <span class="tag">Thread</span>(){
+    <span class="tag">public</span> <span class="tag">void</span> <span class="tag">run</span>(){
+        <span class="comment">/* put your methods here */</span>
+    }
+}<span class="class">.start</span>();
+</code></pre><p>if you’d like to update UI, it requires a handler to do the job:</p>
+<pre><code>Handler <span class="keyword">handler</span> = <span class="keyword">new</span> Handler();
+<span class="keyword">new</span> Thread(){
+    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>{
+        <span class="comment">/* put your methods here */</span>
+        <span class="keyword">handler</span>.post(r1); <span class="comment">// update UI</span>
+    }
+}
+Runnable r1 = <span class="keyword">new</span> Runnable(){
+                <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>{
+                    <span class="comment">//update UI methods here</span>
+                }
+            };
+</code></pre><h1 id="2-_AsyncTask"><strong>2. AsyncTask</strong></h1><p><em>Timing</em></p>
+<ul>
+<li>Small task with a lot works regarding to UI thread</li>
+<li>For tasks required to be done serialized rather than parallel</li>
+<li>It can still run tasks in parallel</li>
+</ul>
+<p><em>DrawBacks</em></p>
+<ul>
+<li>One instance can only be executed once</li>
+<li>Should be created and executed on Main Thread</li>
+</ul>
+<p>Implementation:</p>
+<pre><code><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">YourTask</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">AsyncTask&lt;String</span>, <span class="title">String</span>, <span class="title">Void&gt;</span> {</span>
+    <span class="comment">//automatically execute this function while entering</span>
+    <span class="annotation">@Override</span>
+    <span class="keyword">protected</span> <span class="type">Void</span> doInBackground(<span class="type">String</span>... params){
+        <span class="comment">/*do your task here*/</span>
+        publishProgress(params[<span class="number">0</span>]); 
+        <span class="comment">//update UI, which would redirect to                          </span>
+        <span class="comment">//onProgressExecute function</span>
+    }
+    <span class="annotation">@Override</span>
+    <span class="keyword">protected</span> <span class="type">Void</span> onProgressExecute(<span class="type">String</span>... params){
+        <span class="comment">/*update UI here*/</span>
+    }
+    <span class="annotation">@Override</span>
+    <span class="keyword">protected</span> <span class="type">Void</span> onPostExecute(<span class="type">Void</span> result){
+        <span class="comment">/*execute while task ends*/</span>
+    }
+}
+</code></pre><p>Then, based on your need, make different execution call on UI thread:</p>
+<p><em>If you want your task to be executed sequentially</em></p>
+<pre><code><span class="keyword">new</span> YourTask().execute(<span class="keyword">params</span>);
+</code></pre><p><em>If you want your task to be executed in parallel</em></p>
+<pre><code><span class="keyword">new</span> YourTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, <span class="keyword">params</span>);
+</code></pre><h1 id="3-_ReentrantLock"><strong>3. ReentrantLock</strong></h1><p><em>Timing</em></p>
+<p>While a block of code is being executed, you don’t want another call enter this</p>
+<p>block at the same time, which may cause race condition, so before entering this</p>
+<p>block, you let it acquire a <strong>lock</strong>. Then, other attempts to this block should</p>
+<p>wait until previous call is completed.</p>
+<p><em>Usage</em></p>
+<p>According to Android Developer document:</p>
+<blockquote>
+<p>A reentrant mutual exclusion Lock with the same basic behavior and semantics as the implicit monitor lock accessed using synchronized methods and statements, but with extended capabilities.</p>
+</blockquote>
+<p>which means <em>ReentrantLock</em> has similar function to syncronized modifier, but </p>
+<p>with stronger features.</p>
+<p>You can follow the sample code below:</p>
+<pre><code>ReentrantLock <span class="keyword">lock</span> = <span class="keyword">new</span> ReentranLock();
+<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">funtion</span><span class="params">()</span></span>{
+    <span class="keyword">lock</span>.<span class="keyword">lock</span>();
+    <span class="keyword">try</span>{
+        <span class="comment">//method body</span>
+    }<span class="keyword">catch</span>(Exception e){
+        <span class="comment">//deal with exception</span>
+    }<span class="keyword">finally</span>{
+        <span class="keyword">lock</span>.unlock();
+    }
+}
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<p>In Android development, you can’t execute a task longer than 5 secs on main </p>
+<p>thread, so that’s the reason why we need asyncronized]]>
+    </summary>
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Hexo Blog Tutorial]]></title>
+    <link href="http://yoursite.com/2014/11/27/Hexo-Blog-Tutorial/"/>
+    <id>http://yoursite.com/2014/11/27/Hexo-Blog-Tutorial/</id>
+    <published>2014-11-27T01:43:43.000Z</published>
+    <updated>2014-12-11T02:18:59.000Z</updated>
+    <content type="html"><![CDATA[<p>This article would be my first tutorial on the ground.</p>
+<p>I’m gonna introduce how to easily use <strong>Hexo</strong> to generate your personal blog.</p>
+<h1 id="1-_Create_new_repository_on_GitHub">1. Create new repository on GitHub</h1><p>To begin with, this blog is built on the gitHub page, so you have to sign in</p>
+<p>GitHub and create a new repository, which is named <em>GitHub Account name @ github.com</em>.</p>
+<h1 id="2-_Instal_Node-js,_npm,_and_Hexo">2. Instal Node.js, npm, and Hexo</h1><p>For HomeBrew user:</p>
+<pre><code>brew <span class="keyword">install</span> node
+</code></pre><p>The npm is a node package management tool, which will be automatically installed<br>along with above command.</p>
+<p>Or, you can download from its <a href="http://nodejs.org/" target="_blank" rel="external">official website</a>.</p>
+<p>Then, type command below to install Hexo:</p>
+<pre><code>npm <span class="keyword">install</span> -g hexo
+</code></pre><h1 id="3-_Start_blogging">3. Start blogging</h1><ul>
+<li>Create source folder &amp; Init Hexo</li>
+</ul>
+<p>Go to any path location and create a blog folder.<br>Do Hexo initiate:</p>
+<pre><code><span class="title">hexo</span> init
+</code></pre><p>you will get whole required folders inside.</p>
+<ul>
+<li>New an article</li>
+</ul>
+<p>Then, you can start creating your first article as followed:</p>
+<pre><code>hexo <span class="keyword">new</span> <span class="string">"title of your article"</span>
+</code></pre><p>You will find a file called “title.md” under source-&gt;_posts folder<br>Open it with your favorite text editor and write your article<br>with <a href="http://markdown.tw/" target="_blank" rel="external">Markdown format</a>.</p>
+<ul>
+<li>Generate public file for deploy</li>
+</ul>
+<p>Before you deploy the blog onto server, you should generate a public file with:</p>
+<pre><code>hexo <span class="keyword">ge</span><span class="label">nerate</span>
+</code></pre><p>you’ll find public version under “public” folder.</p>
+<ul>
+<li>View on local server</li>
+</ul>
+<p>In order to check your article first before deploy,</p>
+<p>you can review it on localhost by:</p>
+<pre><code>hexo <span class="keyword">server</span>
+</code></pre><p>The default port is 4000, so just type in localhost:4000 on the browser.</p>
+<ul>
+<li>Deploy on gitHub</li>
+</ul>
+<p>Before you deploy, you should modify _config.yml for configuration.</p>
+<p>Open it and make it like this:</p>
+<pre><code><span class="attribute">deploy</span>:
+<span class="attribute">type</span>: github
+<span class="attribute">repository</span>: git<span class="variable">@github</span>.<span class="attribute">com</span>:your_git_account/your_git_account.github.com.git
+<span class="attribute">branch</span>: master
+</code></pre><p>Then, type below command:</p>
+<pre><code><span class="title">hexo</span> deploy
+</code></pre><p>Congratulations!!! You’re all done.</p>
+<p>You can view your blog site on <em>yourName.github.io</em> .</p>
+<p>Enjoy blogging.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>This article would be my first tutorial on the ground.</p>
+<p>I’m gonna introduce how to easily use <strong>Hexo</strong> to generate you]]>
+    </summary>
+    
+      <category term="Tutorial" scheme="http://yoursite.com/tags/Tutorial/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Introduction]]></title>
+    <link href="http://yoursite.com/2014/11/26/Introduction/"/>
+    <id>http://yoursite.com/2014/11/26/Introduction/</id>
+    <published>2014-11-26T03:32:58.000Z</published>
+    <updated>2014-11-26T04:18:34.000Z</updated>
+    <content type="html"><![CDATA[<p><strong>This</strong> blog kicks off since NOV. 26, 2014.<br>One of my friend told me it’s a good way to keep a blog<br>sharing developing process and cleaning up my mind.<br>Creditted to <em>Mr.Jamie</em> after I read his article yesterday,<br>I decided to <em>start doing a thing</em> right after I <em>think about it</em>.<br>So, here we go. This is not my first Blog but I hope it would be the last.<br>Let’s do this.</p>
+<hr>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><strong>This</strong> blog kicks off since NOV. 26, 2014.<br>One of my friend told me it’s a good way to keep a blog<br>sharing developin]]>
+    </summary>
+    
+  </entry>
+  
+</feed>
