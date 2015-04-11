@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-04-10T14:04:00.000Z</updated>
+  <updated>2015-04-11T04:05:55.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -13,6 +13,121 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Android Coding Styles]]></title>
+    <link href="http://yoursite.com/2015/04/11/Android-Coding-Styles/"/>
+    <id>http://yoursite.com/2015/04/11/Android-Coding-Styles/</id>
+    <published>2015-04-11T04:05:04.000Z</published>
+    <updated>2015-04-11T04:05:55.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="Handling_Exception">Handling Exception</h1><ol>
+<li><p>Handle specific exception rather than generic exception.</p>
+</li>
+<li><p>You can choose to throw the exception up to the caller of your method</p>
+</li>
+</ol>
+<p>For example :</p>
+<pre><code><span class="function"><span class="keyword">void</span> <span class="title">setServerPort</span><span class="params">(String <span class="keyword">value</span>)</span> throws NumberFormatException </span>{      
+    serverPort = Integer.parse(<span class="keyword">value</span>);      
+}
+</code></pre><ol>
+<li><p>Handle the error gracefully and substitute an appropriate value in the catch {} block.</p>
+</li>
+<li><p>Don’t throw RuntimeException. -&gt; cause application to crash</p>
+</li>
+<li><p>Catch each exception separately as separate catch blocks after a single try.</p>
+</li>
+</ol>
+<h1 id="Fully_Qualify_Imports">Fully Qualify Imports</h1><p>Do this :</p>
+<pre><code><span class="preprocessor"><span class="keyword">import</span> foo.Bar;</span>
+</code></pre><p>instead of :</p>
+<pre><code><span class="preprocessor"><span class="keyword">import</span> foo.*;</span>
+</code></pre><h1 id="Java_Style_Rules">Java Style Rules</h1><h2 id="Use_Javadoc_Standard_Comments">Use Javadoc Standard Comments</h2><pre><code>/<span class="keyword">*</span><span class="keyword">*</span>
+ <span class="keyword">*</span>  For example
+ <span class="keyword">*</span>/
+</code></pre><ol>
+<li><p>Seperate each block by a blank line.</p>
+</li>
+<li><p>Describe what the class or interface does.</p>
+</li>
+</ol>
+<p>Quoting from official website</p>
+<blockquote>
+<p>Every class and nontrivial public method you write must contain a Javadoc comment with at least one sentence describing what the class or method does. This sentence should start with a 3rd person descriptive verb.</p>
+</blockquote>
+<ol>
+<li>Don’t need to write Javadoc for trivial get and set method..</li>
+</ol>
+<h2 id="Use_Spaces_for_Indentation">Use Spaces for Indentation</h2><blockquote>
+<p>We use 4 space indents for blocks. We never use tabs. When in doubt, be consistent with code around you.</p>
+<p>We use 8 space indents for line wraps, including function calls and assignments. For example, this is correct:</p>
+</blockquote>
+<h2 id="Limit_Variable_Scope">Limit Variable Scope</h2><ol>
+<li>The scope of local variables should be kept to a minimum.</li>
+<li>Each variables should be declared in the innermost block that enclosed all uses of the variable.</li>
+<li>Local variables should be declared at the point they are first used.</li>
+</ol>
+<p><em>Take a look at the below source code</em></p>
+<pre><code><span class="keyword">Set</span> createSet(<span class="keyword">Class</span> <span class="keyword">cl</span>) {
+    <span class="comment">// Instantiate class cl, which represents some sort of Set </span>
+    try {
+        <span class="keyword">return</span> (<span class="keyword">Set</span>) <span class="keyword">cl</span>.newInstance();
+    } catch(IllegalAccessException <span class="keyword">e</span>) {
+        throw new IllegalArgumentException(<span class="keyword">cl</span> + <span class="string">" not accessible"</span>);
+    } catch(InstantiationException <span class="keyword">e</span>) {
+        throw new IllegalArgumentException(<span class="keyword">cl</span> + <span class="string">" not instantiable"</span>);
+    }
+}
+
+...
+
+<span class="comment">// Exercise the set </span>
+<span class="keyword">Set</span> s = createSet(<span class="keyword">cl</span>);
+s.addAll(Arrays.asList(<span class="keyword">args</span>));
+</code></pre><p>With this techniques, we don’t have to declare a variable and initialize it before try block.</p>
+<ol>
+<li>Loop variables should be declared in the for statement.</li>
+</ol>
+<h2 id="Following_Field_Name_Conventions">Following Field Name Conventions</h2><ul>
+<li>Non-public, non-static field names start with m.</li>
+<li>Static field names start with s.</li>
+<li>Other fields start with a lower case letter.</li>
+<li>Public static final fields(constants) are ALL_CAPS_WITH_UNDERSCORES.</li>
+</ul>
+<p>Example:</p>
+<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>{
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> SOME_CONSTANT = <span class="number">10</span>;
+    <span class="keyword">public</span> <span class="keyword">int</span> publicField;
+    <span class="keyword">private</span> <span class="keyword">static</span> MyClass sSintleton;
+    <span class="keyword">int</span> mPackagePrivate;
+    <span class="keyword">private</span> <span class="keyword">int</span> mPrivate;
+    <span class="keyword">protected</span> <span class="keyword">int</span> mProtected;
+}
+</code></pre><h2 id="Limit_Line_Length">Limit Line Length</h2><ol>
+<li>Each line of text in your code should be at most 100 characters long.</li>
+</ol>
+<h2 id="Use_TODO_Comments">Use TODO Comments</h2><blockquote>
+<p>Use TODO comments for code that is temporary, a short-term solution, or good-enough but not perfect.</p>
+<p>TODOs should include the string TODO in all caps, followed by a colon:</p>
+</blockquote>
+<pre><code>// TODO: Remove this code <span class="keyword">after</span> <span class="operator">the</span> UrlTable2 has been checked <span class="operator">in</span>.
+</code></pre><p>and</p>
+<pre><code>// TODO: Change this <span class="built_in">to</span> use <span class="operator">a</span> flag instead <span class="operator">of</span> <span class="operator">a</span> <span class="built_in">constant</span>.
+</code></pre><blockquote>
+<p>If your TODO is of the form “At a future date do something” make sure that you either include a very specific date (“Fix by November 2005”) or a very specific event (“Remove this code after all production mixers understand protocol V7.”).</p>
+</blockquote>
+<h1 id="Reference"><em>Reference</em></h1><p>[Coding Style Guidelines for Contributors] [<a href="https://source.android.com/source/code-style.html" target="_blank" rel="external">https://source.android.com/source/code-style.html</a>]</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="Handling_Exception">Handling Exception</h1><ol>
+<li><p>Handle specific exception rather than generic exception.</p>
+</li>
+<li><p>You]]>
+    </summary>
+    
+      <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Open Source Tools]]></title>

@@ -20,9 +20,9 @@
 
 
 
-	<meta name="keywords" content="Tools," />
+	<meta name="keywords" content="Android," />
 
-  <title> Open Source Tools // pptang | ApprenticeShip </title>
+  <title> Android Coding Styles // pptang | ApprenticeShip </title>
 </head>
 
 <body>
@@ -93,7 +93,7 @@
           
           
             
-              Open Source Tools
+              Android Coding Styles
             
           
         </h1>
@@ -101,7 +101,7 @@
 
       <div class="post-meta">
         <span class="post-time">
-          發表於 2015-04-10
+          發表於 2015-04-11
         </span>
 
         
@@ -118,37 +118,103 @@
       
 
       
-        <p>Since I joined Alpha-Info, I have approached several useful and cutting-edge tools. The best thing among them is that they are all open sources project, which is really good for start-up company. I’m gonna list all tools and briefly sum up where you can use them, although I don’t have full knowledge of some of them.</p>
-<h1 id="1-_Thrift">1. <a href="https://thrift.apache.org/" target="_blank" rel="external">Thrift</a></h1><p>  It’s an amazing tool which facilitates communication between client and server. Take the project I’m working on as an example, our server code is implemented using C++, while client end supports Android and iOS. Traditionally, we should deal with low-level socket and HTTP package. Also, different platforms like Android and iOS have to establish their own channels for sending requests. Thanks god we have <em>Thrift</em> ! All you should do is write a file which defines required class, member functions, variables… and so on. Then, you can generate server and client end codes simultaneously. Anything else? No, we’re all good here.<br>  Using same example above :</p>
-<p>  a. define API in base.thrift file<br>  b. Supposed to use C++ for server code</p>
-<pre><code>thrift -r <span class="comment">--gen cpp base.thrift</span>
-</code></pre><p>   -&gt; which generates .h &amp; .cpp files<br>  c. java for first client code (Android)</p>
-<pre><code>thrift -r <span class="comment">--gen java base.thrift</span>
-</code></pre><p>   -&gt; which generates .java files<br>  d. cocoa for second client code (iOS)</p>
-<pre><code>thrift -r <span class="comment">--gen cocoa base.thrift</span>
-</code></pre><p>   -&gt; which generates .h &amp; .m files</p>
-<p>  Those generated files contains basic implementation of low-level communicating code. Thus, developers can just concentrate on service itself. </p>
-<h1 id="2-_Scrapy">2.  <a href="http://scrapy.org/" target="_blank" rel="external">Scrapy</a></h1><p>  Scrapy is a python-based framework for web crawling. In our project, we use crawler to fetch some image and title data of clothes from e-comm websites.</p>
-<p>  The below roughly introduce basic operations step by step:</p>
-<p>  a. installed scrapy package using pip install<br>  b. new a scrapy project</p>
-<pre><code>scrapy startproject <span class="tag">&lt;<span class="title">project_name</span>&gt;</span>
-</code></pre><p>  c. go to the deep folder named “spiders” and create your “spider.py” here<br>  d. At the first line of your class in spider.py, set “name” attribute</p>
-<pre><code><span class="property">name</span> = <span class="string">"example"</span>
-</code></pre><p>  e. Then, after you’ve done implementing your spider.py code, type below   command in the terminal :</p>
-<pre><code><span class="title">scrapy</span> crawl example
-</code></pre><p>  Then your program will start crawling!</p>
-<h1 id="3-_MongoDB">3.  <a href="https://www.mongodb.org/" target="_blank" rel="external">MongoDB</a></h1><p>  MongoDB is the No-SQL database, which is more flexible and scalable than SQL database.</p>
-<p>  The only thing I’ve done with MonogoDB is to store data fetched by Scrapy into MongoDB. Still need tons of efforts on it.</p>
-<h1 id="4-_Docker">4.  <a href="https://www.docker.com/" target="_blank" rel="external">Docker</a></h1><p>  To my little knowledge, with Docker, we don’t need to install virtual machine anymore. In the past, if we want to run two services (let’s say mongoDB and redis server), we may need to install two VM with two OS on our physical machine (with Host OS on it). Docker is a tool we can pack each application into each “container”, which can be run as image on kernel level. What’s more, for cross-platform development, we don’t need to build environment for each machine. All we should do is install Docker, pass built image machine by machine, and every machine is equipped with the environment we want.</p>
-<h1 id="5-_CMake">5.  <a href="http://www.cmake.org/" target="_blank" rel="external">CMake</a></h1><p>  CMake can help you define dependencies, static libraries(.lib, .a), dynamic libraries(.so or .dll) which are required by source codes in a file. Then, you just cmake the project with CMakeFileList.txt inside and this tool will generate makeFile which links everything for you (you can even choose the kind of project you’d like to generate, XCode for instance.) Eventually, just make makeFile for executable binaries.</p>
-<h1 id="6-_Redis">6.  <a href="http://redis.io/" target="_blank" rel="external">Redis</a></h1><p>  As shown on the official website,</p>
+        <h1 id="Handling_Exception">Handling Exception</h1><ol>
+<li><p>Handle specific exception rather than generic exception.</p>
+</li>
+<li><p>You can choose to throw the exception up to the caller of your method</p>
+</li>
+</ol>
+<p>For example :</p>
+<pre><code><span class="function"><span class="keyword">void</span> <span class="title">setServerPort</span><span class="params">(String <span class="keyword">value</span>)</span> throws NumberFormatException </span>{      
+    serverPort = Integer.parse(<span class="keyword">value</span>);      
+}
+</code></pre><ol>
+<li><p>Handle the error gracefully and substitute an appropriate value in the catch {} block.</p>
+</li>
+<li><p>Don’t throw RuntimeException. -&gt; cause application to crash</p>
+</li>
+<li><p>Catch each exception separately as separate catch blocks after a single try.</p>
+</li>
+</ol>
+<h1 id="Fully_Qualify_Imports">Fully Qualify Imports</h1><p>Do this :</p>
+<pre><code><span class="preprocessor"><span class="keyword">import</span> foo.Bar;</span>
+</code></pre><p>instead of :</p>
+<pre><code><span class="preprocessor"><span class="keyword">import</span> foo.*;</span>
+</code></pre><h1 id="Java_Style_Rules">Java Style Rules</h1><h2 id="Use_Javadoc_Standard_Comments">Use Javadoc Standard Comments</h2><pre><code>/<span class="keyword">*</span><span class="keyword">*</span>
+ <span class="keyword">*</span>  For example
+ <span class="keyword">*</span>/
+</code></pre><ol>
+<li><p>Seperate each block by a blank line.</p>
+</li>
+<li><p>Describe what the class or interface does.</p>
+</li>
+</ol>
+<p>Quoting from official website</p>
 <blockquote>
-<p>Redis is an open source, BSD licensed, advanced key-value cache and store. It is often referred to as a data structure server since keys can contain strings, hashes, lists, sets, sorted sets, bitmaps and hyperloglogs.</p>
+<p>Every class and nontrivial public method you write must contain a Javadoc comment with at least one sentence describing what the class or method does. This sentence should start with a 3rd person descriptive verb.</p>
 </blockquote>
-<h1 id="7-_HomeBrew">7.  <a href="http://brew.sh/" target="_blank" rel="external">HomeBrew</a></h1><p>  HomeBrew can assist Mac User install some libraries and packages, just like yum、apt-get in other linux-based system.</p>
-<h1 id="8-_Actor">8.  <a href="http://actor-framework.org/" target="_blank" rel="external">Actor</a></h1><p>  Don’t know what it can do yet.</p>
-<h1 id="9-_Redmine">9.  <a href="http://www.redmine.org/" target="_blank" rel="external">Redmine</a></h1><p>  For project management, you can assign tasks to members, trace bugs or issues, list problems…and so on.</p>
-<h1 id="10-_HipChat">10. <a href="https://www.hipchat.com/" target="_blank" rel="external">HipChat</a></h1><p>  Group chatting tool which integrates with Gits. Any member pushing code to the Git will show as message on the chatting window.</p>
+<ol>
+<li>Don’t need to write Javadoc for trivial get and set method..</li>
+</ol>
+<h2 id="Use_Spaces_for_Indentation">Use Spaces for Indentation</h2><blockquote>
+<p>We use 4 space indents for blocks. We never use tabs. When in doubt, be consistent with code around you.</p>
+<p>We use 8 space indents for line wraps, including function calls and assignments. For example, this is correct:</p>
+</blockquote>
+<h2 id="Limit_Variable_Scope">Limit Variable Scope</h2><ol>
+<li>The scope of local variables should be kept to a minimum.</li>
+<li>Each variables should be declared in the innermost block that enclosed all uses of the variable.</li>
+<li>Local variables should be declared at the point they are first used.</li>
+</ol>
+<p><em>Take a look at the below source code</em></p>
+<pre><code><span class="keyword">Set</span> createSet(<span class="keyword">Class</span> <span class="keyword">cl</span>) {
+    <span class="comment">// Instantiate class cl, which represents some sort of Set </span>
+    try {
+        <span class="keyword">return</span> (<span class="keyword">Set</span>) <span class="keyword">cl</span>.newInstance();
+    } catch(IllegalAccessException <span class="keyword">e</span>) {
+        throw new IllegalArgumentException(<span class="keyword">cl</span> + <span class="string">" not accessible"</span>);
+    } catch(InstantiationException <span class="keyword">e</span>) {
+        throw new IllegalArgumentException(<span class="keyword">cl</span> + <span class="string">" not instantiable"</span>);
+    }
+}
+
+...
+
+<span class="comment">// Exercise the set </span>
+<span class="keyword">Set</span> s = createSet(<span class="keyword">cl</span>);
+s.addAll(Arrays.asList(<span class="keyword">args</span>));
+</code></pre><p>With this techniques, we don’t have to declare a variable and initialize it before try block.</p>
+<ol>
+<li>Loop variables should be declared in the for statement.</li>
+</ol>
+<h2 id="Following_Field_Name_Conventions">Following Field Name Conventions</h2><ul>
+<li>Non-public, non-static field names start with m.</li>
+<li>Static field names start with s.</li>
+<li>Other fields start with a lower case letter.</li>
+<li>Public static final fields(constants) are ALL_CAPS_WITH_UNDERSCORES.</li>
+</ul>
+<p>Example:</p>
+<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>{
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> SOME_CONSTANT = <span class="number">10</span>;
+    <span class="keyword">public</span> <span class="keyword">int</span> publicField;
+    <span class="keyword">private</span> <span class="keyword">static</span> MyClass sSintleton;
+    <span class="keyword">int</span> mPackagePrivate;
+    <span class="keyword">private</span> <span class="keyword">int</span> mPrivate;
+    <span class="keyword">protected</span> <span class="keyword">int</span> mProtected;
+}
+</code></pre><h2 id="Limit_Line_Length">Limit Line Length</h2><ol>
+<li>Each line of text in your code should be at most 100 characters long.</li>
+</ol>
+<h2 id="Use_TODO_Comments">Use TODO Comments</h2><blockquote>
+<p>Use TODO comments for code that is temporary, a short-term solution, or good-enough but not perfect.</p>
+<p>TODOs should include the string TODO in all caps, followed by a colon:</p>
+</blockquote>
+<pre><code>// TODO: Remove this code <span class="keyword">after</span> <span class="operator">the</span> UrlTable2 has been checked <span class="operator">in</span>.
+</code></pre><p>and</p>
+<pre><code>// TODO: Change this <span class="built_in">to</span> use <span class="operator">a</span> flag instead <span class="operator">of</span> <span class="operator">a</span> <span class="built_in">constant</span>.
+</code></pre><blockquote>
+<p>If your TODO is of the form “At a future date do something” make sure that you either include a very specific date (“Fix by November 2005”) or a very specific event (“Remove this code after all production mixers understand protocol V7.”).</p>
+</blockquote>
+<h1 id="Reference"><em>Reference</em></h1><p>[Coding Style Guidelines for Contributors] [<a href="https://source.android.com/source/code-style.html" target="_blank" rel="external">https://source.android.com/source/code-style.html</a>]</p>
 
       
     </div>
@@ -157,7 +223,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Tools/"> #Tools </a>
+            <a href="/tags/Android/"> #Android </a>
           
         </div>
       
@@ -166,13 +232,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/04/11/Android-Coding-Styles/">Android Coding Styles</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/04/06/Android-Design-Pattern/">Android Design Pattern</a>
+              <a href="/2015/04/10/Open-Source-Tools/">Open Source Tools</a>
             
           </div>
         </div>
@@ -284,7 +348,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-_Thrift"><span class="nav-number">1.</span> <span class="nav-text">1. Thrift</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-_Scrapy"><span class="nav-number">2.</span> <span class="nav-text">2.  Scrapy</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-_MongoDB"><span class="nav-number">3.</span> <span class="nav-text">3.  MongoDB</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-_Docker"><span class="nav-number">4.</span> <span class="nav-text">4.  Docker</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-_CMake"><span class="nav-number">5.</span> <span class="nav-text">5.  CMake</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-_Redis"><span class="nav-number">6.</span> <span class="nav-text">6.  Redis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-_HomeBrew"><span class="nav-number">7.</span> <span class="nav-text">7.  HomeBrew</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-_Actor"><span class="nav-number">8.</span> <span class="nav-text">8.  Actor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9-_Redmine"><span class="nav-number">9.</span> <span class="nav-text">9.  Redmine</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10-_HipChat"><span class="nav-number">10.</span> <span class="nav-text">10. HipChat</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Handling_Exception"><span class="nav-number">1.</span> <span class="nav-text">Handling Exception</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fully_Qualify_Imports"><span class="nav-number">2.</span> <span class="nav-text">Fully Qualify Imports</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Java_Style_Rules"><span class="nav-number">3.</span> <span class="nav-text">Java Style Rules</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Use_Javadoc_Standard_Comments"><span class="nav-number">3.1.</span> <span class="nav-text">Use Javadoc Standard Comments</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Use_Spaces_for_Indentation"><span class="nav-number">3.2.</span> <span class="nav-text">Use Spaces for Indentation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Limit_Variable_Scope"><span class="nav-number">3.3.</span> <span class="nav-text">Limit Variable Scope</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Following_Field_Name_Conventions"><span class="nav-number">3.4.</span> <span class="nav-text">Following Field Name Conventions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Limit_Line_Length"><span class="nav-number">3.5.</span> <span class="nav-text">Limit Line Length</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Use_TODO_Comments"><span class="nav-number">3.6.</span> <span class="nav-text">Use TODO Comments</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

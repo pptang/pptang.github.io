@@ -107,6 +107,167 @@
           
           
             
+              <a class="post-title-link" href="/2015/04/11/Android-Coding-Styles/">
+                Android Coding Styles
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          發表於 2015-04-11
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h1 id="Handling_Exception">Handling Exception</h1><ol>
+<li><p>Handle specific exception rather than generic exception.</p>
+</li>
+<li><p>You can choose to throw the exception up to the caller of your method</p>
+</li>
+</ol>
+<p>For example :</p>
+<pre><code><span class="function"><span class="keyword">void</span> <span class="title">setServerPort</span><span class="params">(String <span class="keyword">value</span>)</span> throws NumberFormatException </span>{      
+    serverPort = Integer.parse(<span class="keyword">value</span>);      
+}
+</code></pre><ol>
+<li><p>Handle the error gracefully and substitute an appropriate value in the catch {} block.</p>
+</li>
+<li><p>Don’t throw RuntimeException. -&gt; cause application to crash</p>
+</li>
+<li><p>Catch each exception separately as separate catch blocks after a single try.</p>
+</li>
+</ol>
+<h1 id="Fully_Qualify_Imports">Fully Qualify Imports</h1><p>Do this :</p>
+<pre><code><span class="preprocessor"><span class="keyword">import</span> foo.Bar;</span>
+</code></pre><p>instead of :</p>
+<pre><code><span class="preprocessor"><span class="keyword">import</span> foo.*;</span>
+</code></pre><h1 id="Java_Style_Rules">Java Style Rules</h1><h2 id="Use_Javadoc_Standard_Comments">Use Javadoc Standard Comments</h2><pre><code>/<span class="keyword">*</span><span class="keyword">*</span>
+ <span class="keyword">*</span>  For example
+ <span class="keyword">*</span>/
+</code></pre><ol>
+<li><p>Seperate each block by a blank line.</p>
+</li>
+<li><p>Describe what the class or interface does.</p>
+</li>
+</ol>
+<p>Quoting from official website</p>
+<blockquote>
+<p>Every class and nontrivial public method you write must contain a Javadoc comment with at least one sentence describing what the class or method does. This sentence should start with a 3rd person descriptive verb.</p>
+</blockquote>
+<ol>
+<li>Don’t need to write Javadoc for trivial get and set method..</li>
+</ol>
+<h2 id="Use_Spaces_for_Indentation">Use Spaces for Indentation</h2><blockquote>
+<p>We use 4 space indents for blocks. We never use tabs. When in doubt, be consistent with code around you.</p>
+<p>We use 8 space indents for line wraps, including function calls and assignments. For example, this is correct:</p>
+</blockquote>
+<h2 id="Limit_Variable_Scope">Limit Variable Scope</h2><ol>
+<li>The scope of local variables should be kept to a minimum.</li>
+<li>Each variables should be declared in the innermost block that enclosed all uses of the variable.</li>
+<li>Local variables should be declared at the point they are first used.</li>
+</ol>
+<p><em>Take a look at the below source code</em></p>
+<pre><code><span class="keyword">Set</span> createSet(<span class="keyword">Class</span> <span class="keyword">cl</span>) {
+    <span class="comment">// Instantiate class cl, which represents some sort of Set </span>
+    try {
+        <span class="keyword">return</span> (<span class="keyword">Set</span>) <span class="keyword">cl</span>.newInstance();
+    } catch(IllegalAccessException <span class="keyword">e</span>) {
+        throw new IllegalArgumentException(<span class="keyword">cl</span> + <span class="string">" not accessible"</span>);
+    } catch(InstantiationException <span class="keyword">e</span>) {
+        throw new IllegalArgumentException(<span class="keyword">cl</span> + <span class="string">" not instantiable"</span>);
+    }
+}
+
+...
+
+<span class="comment">// Exercise the set </span>
+<span class="keyword">Set</span> s = createSet(<span class="keyword">cl</span>);
+s.addAll(Arrays.asList(<span class="keyword">args</span>));
+</code></pre><p>With this techniques, we don’t have to declare a variable and initialize it before try block.</p>
+<ol>
+<li>Loop variables should be declared in the for statement.</li>
+</ol>
+<h2 id="Following_Field_Name_Conventions">Following Field Name Conventions</h2><ul>
+<li>Non-public, non-static field names start with m.</li>
+<li>Static field names start with s.</li>
+<li>Other fields start with a lower case letter.</li>
+<li>Public static final fields(constants) are ALL_CAPS_WITH_UNDERSCORES.</li>
+</ul>
+<p>Example:</p>
+<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>{
+    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> SOME_CONSTANT = <span class="number">10</span>;
+    <span class="keyword">public</span> <span class="keyword">int</span> publicField;
+    <span class="keyword">private</span> <span class="keyword">static</span> MyClass sSintleton;
+    <span class="keyword">int</span> mPackagePrivate;
+    <span class="keyword">private</span> <span class="keyword">int</span> mPrivate;
+    <span class="keyword">protected</span> <span class="keyword">int</span> mProtected;
+}
+</code></pre><h2 id="Limit_Line_Length">Limit Line Length</h2><ol>
+<li>Each line of text in your code should be at most 100 characters long.</li>
+</ol>
+<h2 id="Use_TODO_Comments">Use TODO Comments</h2><blockquote>
+<p>Use TODO comments for code that is temporary, a short-term solution, or good-enough but not perfect.</p>
+<p>TODOs should include the string TODO in all caps, followed by a colon:</p>
+</blockquote>
+<pre><code>// TODO: Remove this code <span class="keyword">after</span> <span class="operator">the</span> UrlTable2 has been checked <span class="operator">in</span>.
+</code></pre><p>and</p>
+<pre><code>// TODO: Change this <span class="built_in">to</span> use <span class="operator">a</span> flag instead <span class="operator">of</span> <span class="operator">a</span> <span class="built_in">constant</span>.
+</code></pre><blockquote>
+<p>If your TODO is of the form “At a future date do something” make sure that you either include a very specific date (“Fix by November 2005”) or a very specific event (“Remove this code after all production mixers understand protocol V7.”).</p>
+</blockquote>
+<h1 id="Reference"><em>Reference</em></h1><p>[Coding Style Guidelines for Contributors] [<a href="https://source.android.com/source/code-style.html" target="_blank" rel="external">https://source.android.com/source/code-style.html</a>]</p>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/"> #Android </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/04/10/Open-Source-Tools/">
                 Open Source Tools
               </a>
@@ -284,109 +445,11 @@
 
 
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/04/06/Weakness/">
-                現在的缺點
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          發表於 2015-04-06
-        </span>
-
-        
-
-        
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>從這篇開始分享看學徒模式這本書，邊學邊做的心得，</p>
-<p>首先整理了開始寫Android約半年發現自己的弱點，</p>
-<p>讓自己以後回來檢視是否有改善。</p>
-<p><strong>1. 寫出來的程式再利用性很差</strong></p>
-<p>  舉例來說，有幾個Fragment要呈現的畫面幾乎一樣，</p>
-<p>  卻沒有寫成一個通用的Fragment重複使用，失去Fragment的原意。</p>
-<p>  發生這樣的原因應該是寫的時候缺乏彈性，其實也不難，</p>
-<p>  常常太急著實作，這樣反而缺乏效率，又多了很多重複的垃圾，</p>
-<p>  要變高手得要讓思考及設計的時間遠超過實作的時間才行。</p>
-<p><strong>2. 寫出來的程式可讀性很差</strong></p>
-<p>  大學時讀的課本裡常強調“可讀性”、“再利用“都覺得好懂但抽象，</p>
-<p>  實際做一個大型專案才真正體悟到這些概念的重要性，常常回頭看自己寫的程式</p>
-<p>  都不懂自己當初是怎麼想的，這樣反而要花更多時間，所以在寫的時候還是一句話，</p>
-<p>  不 要 急！我很容易為了想要讓畫面快點出來，就隨便先寫到跑得過，然後跑過之後</p>
-<p>  又懶得去改了。。。這點一定要改掉。</p>
-<p><strong>3. 不喜歡讀原始🐎</strong></p>
-<p>  也是因為求快，要完成某功能先去查open source的library，拿來用之前</p>
-<p>  研究得不夠透徹，導致程式碼變得很沒有彈性，最後會去遷就library讓自己的</p>
-<p>  架構變得很醜，並局限於library提供的功能，so go read fucking source code!</p>
-<p><strong>4. 沒有一致的變數命名習慣</strong></p>
-<p>  看了三叔的code才發現程式碼的命名及格式可以大大提高程式碼可讀性，</p>
-<p>  甚至可以大量減少註解，有耐心的排版及養成一致命名習慣，最好是參考官方文件的命名方式。</p>
-<p><strong>5. 不喜歡寫測試程式碼</strong></p>
-<p>  學新的語言時，傾向一直讀語法而沒去寫測試程式，用Open Source Library時，常常直接套</p>
-<p>  用在Project而沒先寫測試程式完整理解Library內容，雖然還不是很懂Test Driven Development，</p>
-<p>  但看過的文章表示這是一個開發的趨勢，趕緊去研究這塊！</p>
-<p><strong>6. 程式碼管理得很爛</strong></p>
-<p>  做Project的時候沒有習慣push到github，要改程式的時候也沒有先備份，全部亂成一團，</p>
-<p>  找不到之前自己寫的程式。</p>
-<p>  管理好自己的github對職涯發展很有幫助。</p>
-<p><strong>7. 不喜歡紀錄</strong></p>
-<p>  懶得寫blog，推給沒有時間，但其實寫一篇blog其實不用一小時，卻可以讓學徒期的成長更快。<br>  懶得寫文件，推給沒有時間，但寫文件可以讓自己思路更清楚，也可以減少之後架環境或查詢的時間。<br>  懶得分享，分享一個新的技術實作或概念可以從與其他programmers的互動中建立正向迴路。</p>
-<p>壞習慣要改不是設立一個deadline然後一次全部就都行了，</p>
-<p>遇到的時候要想到自己列出來的這些點，然後沒有藉口的直接照做。</p>
-
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/學徒模式/"> #學徒模式 </a>
-          
-        </div>
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
   </div>
 
   
   <div class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
   </div>
 
 
@@ -417,7 +480,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -448,6 +511,16 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+              <a href="https://github.com/pptang" target="_blank">github</a>
+            </span>
+            
+              <span class="links-of-author-item">
+              <a href="https://facebook.com/100000050066516" target="_blank">facebook</a>
+            </span>
+            
           
         </div>
 
