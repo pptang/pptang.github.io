@@ -143,98 +143,12 @@
       
         
           <p>In Android development, you can’t execute a task longer than 5 secs on main </p>
-<p>thread, so that’s the reason why we need asyncronized task.</p>
-<p>Google provided <strong>Thread</strong>, <strong>AsyncTask</strong>, <strong>Service</strong> for developers, I’ll </p>
-<p>briefly introduce <strong>Thread</strong> and <strong>AsyncTask</strong> in this article. Also, there is </p>
-<p>useful mechanism reffered to <strong>ReentrantLock</strong>. I’ll get to it at the end.</p>
-<h1 id="1-_Thread"><strong>1. Thread</strong></h1><p><em>Timing</em></p>
-<ul>
-<li>Long task in general</li>
-<li>For tasks in parallel</li>
-</ul>
-<p><em>Drawbacks in our app</em></p>
-<p> Because threads can be run in parallel, task like “send message” will result </p>
-<p> in “out of sequence response” error. Actually, it can be resolved using </p>
-<p> “Reentrant Lock”. We’ll get to it later in the article.</p>
-<p>Call this on any thread :</p>
-<pre><code><span class="tag">new</span> <span class="tag">Thread</span>(){
-    <span class="tag">public</span> <span class="tag">void</span> <span class="tag">run</span>(){
-        <span class="comment">/* put your methods here */</span>
-    }
-}<span class="class">.start</span>();
-</code></pre><p>if you’d like to update UI, it requires a handler to do the job:</p>
-<pre><code>Handler <span class="keyword">handler</span> = <span class="keyword">new</span> Handler();
-<span class="keyword">new</span> Thread(){
-    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>{
-        <span class="comment">/* put your methods here */</span>
-        <span class="keyword">handler</span>.post(r1); <span class="comment">// update UI</span>
-    }
-}
-Runnable r1 = <span class="keyword">new</span> Runnable(){
-                <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>{
-                    <span class="comment">//update UI methods here</span>
-                }
-            };
-</code></pre><h1 id="2-_AsyncTask"><strong>2. AsyncTask</strong></h1><p><em>Timing</em></p>
-<ul>
-<li>Small task with a lot works regarding to UI thread</li>
-<li>For tasks required to be done serialized rather than parallel</li>
-<li>It can still run tasks in parallel</li>
-</ul>
-<p><em>DrawBacks</em></p>
-<ul>
-<li>One instance can only be executed once</li>
-<li>Should be created and executed on Main Thread</li>
-</ul>
-<p>Implementation:</p>
-<pre><code><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">YourTask</span> <span class="keyword"><span class="keyword">extends</span></span> <span class="title">AsyncTask&lt;String</span>, <span class="title">String</span>, <span class="title">Void&gt;</span> {</span>
-    <span class="comment">//automatically execute this function while entering</span>
-    <span class="annotation">@Override</span>
-    <span class="keyword">protected</span> <span class="type">Void</span> doInBackground(<span class="type">String</span>... params){
-        <span class="comment">/*do your task here*/</span>
-        publishProgress(params[<span class="number">0</span>]); 
-        <span class="comment">//update UI, which would redirect to                          </span>
-        <span class="comment">//onProgressExecute function</span>
-    }
-    <span class="annotation">@Override</span>
-    <span class="keyword">protected</span> <span class="type">Void</span> onProgressExecute(<span class="type">String</span>... params){
-        <span class="comment">/*update UI here*/</span>
-    }
-    <span class="annotation">@Override</span>
-    <span class="keyword">protected</span> <span class="type">Void</span> onPostExecute(<span class="type">Void</span> result){
-        <span class="comment">/*execute while task ends*/</span>
-    }
-}
-</code></pre><p>Then, based on your need, make different execution call on UI thread:</p>
-<p><em>If you want your task to be executed sequentially</em></p>
-<pre><code><span class="keyword">new</span> YourTask().execute(<span class="keyword">params</span>);
-</code></pre><p><em>If you want your task to be executed in parallel</em></p>
-<pre><code><span class="keyword">new</span> YourTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, <span class="keyword">params</span>);
-</code></pre><h1 id="3-_ReentrantLock"><strong>3. ReentrantLock</strong></h1><p><em>Timing</em></p>
-<p>While a block of code is being executed, you don’t want another call enter this</p>
-<p>block at the same time, which may cause race condition, so before entering this</p>
-<p>block, you let it acquire a <strong>lock</strong>. Then, other attempts to this block should</p>
-<p>wait until previous call is completed.</p>
-<p><em>Usage</em></p>
-<p>According to Android Developer document:</p>
-<blockquote>
-<p>A reentrant mutual exclusion Lock with the same basic behavior and semantics as the implicit monitor lock accessed using synchronized methods and statements, but with extended capabilities.</p>
-</blockquote>
-<p>which means <em>ReentrantLock</em> has similar function to syncronized modifier, but </p>
-<p>with stronger features.</p>
-<p>You can follow the sample code below:</p>
-<pre><code>ReentrantLock <span class="keyword">lock</span> = <span class="keyword">new</span> ReentranLock();
-<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">funtion</span><span class="params">()</span></span>{
-    <span class="keyword">lock</span>.<span class="keyword">lock</span>();
-    <span class="keyword">try</span>{
-        <span class="comment">//method body</span>
-    }<span class="keyword">catch</span>(Exception e){
-        <span class="comment">//deal with exception</span>
-    }<span class="keyword">finally</span>{
-        <span class="keyword">lock</span>.unlock();
-    }
-}
-</code></pre>
+<p>thread, so that’s the reason why we need asyncronized task.
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/12/11/AsyncTask/#more">
+              閱讀全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -307,54 +221,12 @@ Runnable r1 = <span class="keyword">new</span> Runnable(){
         
           <p>This article would be my first tutorial on the ground.</p>
 <p>I’m gonna introduce how to easily use <strong>Hexo</strong> to generate your personal blog.</p>
-<h1 id="1-_Create_new_repository_on_GitHub">1. Create new repository on GitHub</h1><p>To begin with, this blog is built on the gitHub page, so you have to sign in</p>
-<p>GitHub and create a new repository, which is named <em>GitHub Account name @ github.com</em>.</p>
-<h1 id="2-_Instal_Node-js,_npm,_and_Hexo">2. Instal Node.js, npm, and Hexo</h1><p>For HomeBrew user:</p>
-<pre><code>brew <span class="keyword">install</span> node
-</code></pre><p>The npm is a node package management tool, which will be automatically installed<br>along with above command.</p>
-<p>Or, you can download from its <a href="http://nodejs.org/" target="_blank" rel="external">official website</a>.</p>
-<p>Then, type command below to install Hexo:</p>
-<pre><code>npm <span class="keyword">install</span> -g hexo
-</code></pre><h1 id="3-_Start_blogging">3. Start blogging</h1><ul>
-<li>Create source folder &amp; Init Hexo</li>
-</ul>
-<p>Go to any path location and create a blog folder.<br>Do Hexo initiate:</p>
-<pre><code><span class="title">hexo</span> init
-</code></pre><p>you will get whole required folders inside.</p>
-<ul>
-<li>New an article</li>
-</ul>
-<p>Then, you can start creating your first article as followed:</p>
-<pre><code>hexo <span class="keyword">new</span> <span class="string">"title of your article"</span>
-</code></pre><p>You will find a file called “title.md” under source-&gt;_posts folder<br>Open it with your favorite text editor and write your article<br>with <a href="http://markdown.tw/" target="_blank" rel="external">Markdown format</a>.</p>
-<ul>
-<li>Generate public file for deploy</li>
-</ul>
-<p>Before you deploy the blog onto server, you should generate a public file with:</p>
-<pre><code>hexo <span class="keyword">ge</span><span class="label">nerate</span>
-</code></pre><p>you’ll find public version under “public” folder.</p>
-<ul>
-<li>View on local server</li>
-</ul>
-<p>In order to check your article first before deploy,</p>
-<p>you can review it on localhost by:</p>
-<pre><code>hexo <span class="keyword">server</span>
-</code></pre><p>The default port is 4000, so just type in localhost:4000 on the browser.</p>
-<ul>
-<li>Deploy on gitHub</li>
-</ul>
-<p>Before you deploy, you should modify _config.yml for configuration.</p>
-<p>Open it and make it like this:</p>
-<pre><code><span class="attribute">deploy</span>:
-<span class="attribute">type</span>: github
-<span class="attribute">repository</span>: git<span class="variable">@github</span>.<span class="attribute">com</span>:your_git_account/your_git_account.github.com.git
-<span class="attribute">branch</span>: master
-</code></pre><p>Then, type below command:</p>
-<pre><code><span class="title">hexo</span> deploy
-</code></pre><p>Congratulations!!! You’re all done.</p>
-<p>You can view your blog site on <em>yourName.github.io</em> .</p>
-<p>Enjoy blogging.</p>
-
+<h1 id="1-_Create_new_repository_on_GitHub<!-more->">1. Create new repository on GitHub
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/11/27/Hexo-Blog-Tutorial/#more">
+              閱讀全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -425,9 +297,12 @@ Runnable r1 = <span class="keyword">new</span> Runnable(){
 
       
         
-          <p><strong>This</strong> blog kicks off since NOV. 26, 2014.<br>One of my friend told me it’s a good way to keep a blog<br>sharing developing process and cleaning up my mind.<br>Creditted to <em>Mr.Jamie</em> after I read his article yesterday,<br>I decided to <em>start doing a thing</em> right after I <em>think about it</em>.<br>So, here we go. This is not my first Blog but I hope it would be the last.<br>Let’s do this.</p>
-<hr>
-
+          <p>This blog kicks off since NOV. 26, 2014.<br>One of my friend told me it’s a good way to keep a blog<br>sharing developing process and cleaning up my mind.
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/11/26/Introduction/#more">
+              閱讀全文 &raquo;
+            </a>
+          </div>
         
       
     </div>

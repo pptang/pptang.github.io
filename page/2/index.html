@@ -142,38 +142,12 @@
 
       
         
-          <p>Since I joined Alpha-Info, I have approached several useful and cutting-edge tools. The best thing among them is that they are all open sources project, which is really good for start-up company. I’m gonna list all tools and briefly sum up where you can use them, although I don’t have full knowledge of some of them.</p>
-<h1 id="1-_Thrift">1. <a href="https://thrift.apache.org/" target="_blank" rel="external">Thrift</a></h1><p>  It’s an amazing tool which facilitates communication between client and server. Take the project I’m working on as an example, our server code is implemented using C++, while client end supports Android and iOS. Traditionally, we should deal with low-level socket and HTTP package. Also, different platforms like Android and iOS have to establish their own channels for sending requests. Thanks god we have <em>Thrift</em> ! All you should do is write a file which defines required class, member functions, variables… and so on. Then, you can generate server and client end codes simultaneously. Anything else? No, we’re all good here.<br>  Using same example above :</p>
-<p>  a. define API in base.thrift file<br>  b. Supposed to use C++ for server code</p>
-<pre><code>thrift -r <span class="comment">--gen cpp base.thrift</span>
-</code></pre><p>   -&gt; which generates .h &amp; .cpp files<br>  c. java for first client code (Android)</p>
-<pre><code>thrift -r <span class="comment">--gen java base.thrift</span>
-</code></pre><p>   -&gt; which generates .java files<br>  d. cocoa for second client code (iOS)</p>
-<pre><code>thrift -r <span class="comment">--gen cocoa base.thrift</span>
-</code></pre><p>   -&gt; which generates .h &amp; .m files</p>
-<p>  Those generated files contains basic implementation of low-level communicating code. Thus, developers can just concentrate on service itself. </p>
-<h1 id="2-_Scrapy">2.  <a href="http://scrapy.org/" target="_blank" rel="external">Scrapy</a></h1><p>  Scrapy is a python-based framework for web crawling. In our project, we use crawler to fetch some image and title data of clothes from e-comm websites.</p>
-<p>  The below roughly introduce basic operations step by step:</p>
-<p>  a. installed scrapy package using pip install<br>  b. new a scrapy project</p>
-<pre><code>scrapy startproject <span class="tag">&lt;<span class="title">project_name</span>&gt;</span>
-</code></pre><p>  c. go to the deep folder named “spiders” and create your “spider.py” here<br>  d. At the first line of your class in spider.py, set “name” attribute</p>
-<pre><code><span class="property">name</span> = <span class="string">"example"</span>
-</code></pre><p>  e. Then, after you’ve done implementing your spider.py code, type below   command in the terminal :</p>
-<pre><code><span class="title">scrapy</span> crawl example
-</code></pre><p>  Then your program will start crawling!</p>
-<h1 id="3-_MongoDB">3.  <a href="https://www.mongodb.org/" target="_blank" rel="external">MongoDB</a></h1><p>  MongoDB is the No-SQL database, which is more flexible and scalable than SQL database.</p>
-<p>  The only thing I’ve done with MonogoDB is to store data fetched by Scrapy into MongoDB. Still need tons of efforts on it.</p>
-<h1 id="4-_Docker">4.  <a href="https://www.docker.com/" target="_blank" rel="external">Docker</a></h1><p>  To my little knowledge, with Docker, we don’t need to install virtual machine anymore. In the past, if we want to run two services (let’s say mongoDB and redis server), we may need to install two VM with two OS on our physical machine (with Host OS on it). Docker is a tool we can pack each application into each “container”, which can be run as image on kernel level. What’s more, for cross-platform development, we don’t need to build environment for each machine. All we should do is install Docker, pass built image machine by machine, and every machine is equipped with the environment we want.</p>
-<h1 id="5-_CMake">5.  <a href="http://www.cmake.org/" target="_blank" rel="external">CMake</a></h1><p>  CMake can help you define dependencies, static libraries(.lib, .a), dynamic libraries(.so or .dll) which are required by source codes in a file. Then, you just cmake the project with CMakeFileList.txt inside and this tool will generate makeFile which links everything for you (you can even choose the kind of project you’d like to generate, XCode for instance.) Eventually, just make makeFile for executable binaries.</p>
-<h1 id="6-_Redis">6.  <a href="http://redis.io/" target="_blank" rel="external">Redis</a></h1><p>  As shown on the official website,</p>
-<blockquote>
-<p>Redis is an open source, BSD licensed, advanced key-value cache and store. It is often referred to as a data structure server since keys can contain strings, hashes, lists, sets, sorted sets, bitmaps and hyperloglogs.</p>
-</blockquote>
-<h1 id="7-_HomeBrew">7.  <a href="http://brew.sh/" target="_blank" rel="external">HomeBrew</a></h1><p>  HomeBrew can assist Mac User install some libraries and packages, just like yum、apt-get in other linux-based system.</p>
-<h1 id="8-_Actor">8.  <a href="http://actor-framework.org/" target="_blank" rel="external">Actor</a></h1><p>  Don’t know what it can do yet.</p>
-<h1 id="9-_Redmine">9.  <a href="http://www.redmine.org/" target="_blank" rel="external">Redmine</a></h1><p>  For project management, you can assign tasks to members, trace bugs or issues, list problems…and so on.</p>
-<h1 id="10-_HipChat">10. <a href="https://www.hipchat.com/" target="_blank" rel="external">HipChat</a></h1><p>  Group chatting tool which integrates with Gits. Any member pushing code to the Git will show as message on the chatting window.</p>
-
+          <p>Since I joined Alpha-Info, I have approached several useful and cutting-edge tools. The best thing among them is that they are all open sources project, which is really good for start-up company. I’m gonna list all tools and
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/04/10/Open-Source-Tools/#more">
+              閱讀全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -246,34 +220,12 @@
         
           <p>Look around some articles on the net, they said the reason why</p>
 <p>Android dominates a big part of mobile OS market share is the fact</p>
-<p>that it integrates Design patterns into its design philosophy. </p>
-<p>Most of them are out of my knowledge, so I list them here and </p>
-<p>will acquire all patterns, one by one.</p>
-<ul>
-<li>Template Method</li>
-<li>Factory Method</li>
-<li>Observer </li>
-<li>Abstract Factory</li>
-<li>Adapter </li>
-<li>Composite</li>
-<li>Strategy</li>
-<li>State</li>
-<li>Proxy</li>
-<li>Bridge</li>
-<li>Iterator</li>
-<li>Mediator</li>
-<li>Fa?ade</li>
-</ul>
-<p>According to last post, I should do things in new ways.</p>
-<p>The below is the SOP of learning design patterns for android:</p>
-<ol>
-<li>Understand the theory of certain pattern</li>
-<li>Write a simple (really shoule be simple) test program using the pattern</li>
-<li>Push to Github with catogories</li>
-<li>Write details for each pattern and post them to this blog.</li>
-</ol>
-<p>Be responsible to yourself.</p>
-
+<p>that it integrates Design patterns into its design philosophy.
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/04/06/Android-Design-Pattern/#more">
+              閱讀全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -346,39 +298,12 @@
         
           <p>從這篇開始分享看學徒模式這本書，邊學邊做的心得，</p>
 <p>首先整理了開始寫Android約半年發現自己的弱點，</p>
-<p>讓自己以後回來檢視是否有改善。</p>
-<p><strong>1. 寫出來的程式再利用性很差</strong></p>
-<p>  舉例來說，有幾個Fragment要呈現的畫面幾乎一樣，</p>
-<p>  卻沒有寫成一個通用的Fragment重複使用，失去Fragment的原意。</p>
-<p>  發生這樣的原因應該是寫的時候缺乏彈性，其實也不難，</p>
-<p>  常常太急著實作，這樣反而缺乏效率，又多了很多重複的垃圾，</p>
-<p>  要變高手得要讓思考及設計的時間遠超過實作的時間才行。</p>
-<p><strong>2. 寫出來的程式可讀性很差</strong></p>
-<p>  大學時讀的課本裡常強調“可讀性”、“再利用“都覺得好懂但抽象，</p>
-<p>  實際做一個大型專案才真正體悟到這些概念的重要性，常常回頭看自己寫的程式</p>
-<p>  都不懂自己當初是怎麼想的，這樣反而要花更多時間，所以在寫的時候還是一句話，</p>
-<p>  不 要 急！我很容易為了想要讓畫面快點出來，就隨便先寫到跑得過，然後跑過之後</p>
-<p>  又懶得去改了。。。這點一定要改掉。</p>
-<p><strong>3. 不喜歡讀原始🐎</strong></p>
-<p>  也是因為求快，要完成某功能先去查open source的library，拿來用之前</p>
-<p>  研究得不夠透徹，導致程式碼變得很沒有彈性，最後會去遷就library讓自己的</p>
-<p>  架構變得很醜，並局限於library提供的功能，so go read fucking source code!</p>
-<p><strong>4. 沒有一致的變數命名習慣</strong></p>
-<p>  看了三叔的code才發現程式碼的命名及格式可以大大提高程式碼可讀性，</p>
-<p>  甚至可以大量減少註解，有耐心的排版及養成一致命名習慣，最好是參考官方文件的命名方式。</p>
-<p><strong>5. 不喜歡寫測試程式碼</strong></p>
-<p>  學新的語言時，傾向一直讀語法而沒去寫測試程式，用Open Source Library時，常常直接套</p>
-<p>  用在Project而沒先寫測試程式完整理解Library內容，雖然還不是很懂Test Driven Development，</p>
-<p>  但看過的文章表示這是一個開發的趨勢，趕緊去研究這塊！</p>
-<p><strong>6. 程式碼管理得很爛</strong></p>
-<p>  做Project的時候沒有習慣push到github，要改程式的時候也沒有先備份，全部亂成一團，</p>
-<p>  找不到之前自己寫的程式。</p>
-<p>  管理好自己的github對職涯發展很有幫助。</p>
-<p><strong>7. 不喜歡紀錄</strong></p>
-<p>  懶得寫blog，推給沒有時間，但其實寫一篇blog其實不用一小時，卻可以讓學徒期的成長更快。<br>  懶得寫文件，推給沒有時間，但寫文件可以讓自己思路更清楚，也可以減少之後架環境或查詢的時間。<br>  懶得分享，分享一個新的技術實作或概念可以從與其他programmers的互動中建立正向迴路。</p>
-<p>壞習慣要改不是設立一個deadline然後一次全部就都行了，</p>
-<p>遇到的時候要想到自己列出來的這些點，然後沒有藉口的直接照做。</p>
-
+<p>讓自己以後回來檢視是否有改善。
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/04/06/Weakness/#more">
+              閱讀全文 &raquo;
+            </a>
+          </div>
         
       
     </div>

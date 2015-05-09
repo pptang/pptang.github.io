@@ -142,7 +142,7 @@
 
       
         
-          <p>從去年九月開始開發Android到現在，對寫程式這件事有一些想法，大學的時候有幾個專案做得很<br>不好，就會開始想自己或許不適合寫程式這條路，於是選擇去美國唸商學院，當兵的時候規劃了一<br>下自己的職涯，決定以IT consultant為方向前進，想了想，要幫公司解決IT問題，總該先做一<br>些資訊科技的工作，才比較清楚毛出在哪裡，好吧，那先做三到五年的工程師再轉顧問，工作找得<br>算蠻順利，但又要面臨大公司對上新創公司的抉擇，從那時候開始才去了解新創到底是怎麼一回事，<br>
+          <p>從去年九月開始開發Android到現在，對寫程式這件事有一些想法，大學的時候有幾個專案做得很<br>不好，就會開始想自己或許不適合寫程式這條路，於是選擇去美國唸商學院，當兵的時候規劃了一<br>下自己的職涯，決定以IT consultant為方向前進，想了想，要幫公司解決IT問題，總該先做一
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/05/09/dev-exp/#more">
               閱讀全文 &raquo;
@@ -218,41 +218,12 @@
 
       
         
-          <p>Yahoo去年八月買下Flurry之後推出了一個分析工具，讓developer可以輕易的在app裡想要觀察的<br>Event(按某個按鈕、完成某項交易)種程式碼，加了之後不但可以分析使用者的習慣，還可以追蹤平均<br>使用時間、Retention Rate…等觀察。上禮拜參加完開發者大會後就馬上實做在我們的App裡了，<br>下面是step by step教學(我是使用Android Studio開發)：</p>
-<h1 id="1-_Flurry_Sign_Up">1. <a href="http://www.flurry.com/solutions/analytics" target="_blank" rel="external">Flurry</a> Sign Up</h1><p>  照步驟申請完就會拿到一組API KEY</p>
-<h1 id="2-_下載_FlurryAnalytics-5-3-0-jar">2. 下載 FlurryAnalytics-5.3.0.jar</h1><p>  下載後放在 yourProject/yourModule/libs/ 下，然後去那個module的build.gradle加上：<br>        dependencies {<br>            compile files(‘libs/FlurryAnalytics-5.3.0.jar’)<br>        }</p>
-<h1 id="3-_去Application_or_Activity_Level_下的onCreate_加上兩行：">3. 去Application or Activity Level 下的onCreate 加上兩行：</h1><pre><code><span class="annotation">@Override</span>
-<span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span></span>{
-    <span class="keyword">super</span>.onCreate();
-    <span class="comment">// configure Flurry</span>
-    FlurryAgent.setLogEnabled(<span class="keyword">false</span>);
-
-    <span class="comment">// init Flurry （在這邊放你的API Key)</span>
-    FlurryAgent.init(<span class="keyword">this</span>, getResources().getString(R.string.my_flurry_api_key));
-}
-</code></pre><h1 id="4-_開始對你要觀察的Event加Code：">4. 開始對你要觀察的Event加Code：</h1><p>  舉例來說，我有一個帥翻的功能是長按圖片可以跑出一個很水的menu，我想知道使用者到底有沒有發現它，<br>  到底實不實用呢？我就去這個功能的onLongClick裡加上：</p>
-<pre><code><span class="comment">// OnLongClick for pop-up menu</span>
-convertView<span class="built_in">.</span>setOnLongClickListener(<span class="literal">new</span> View<span class="built_in">.</span>OnLongClickListener() {
-
-    @Override
-    <span class="keyword">public</span> <span class="built_in">boolean</span> onLongClick(View v) {
-
-        <span class="comment">// 用Map來記錄參數</span>
-        <span class="built_in">Map</span><span class="subst">&lt;</span><span class="built_in">String</span>, <span class="built_in">String</span><span class="subst">&gt;</span> <span class="keyword">params</span> <span class="subst">=</span> <span class="literal">new</span> HashMap<span class="subst">&lt;</span><span class="built_in">String</span>, <span class="built_in">String</span><span class="subst">&gt;</span>();
-
-        <span class="comment">// param keys and values have to be of String type</span>
-        <span class="keyword">params</span><span class="built_in">.</span>put(<span class="string">"你想記錄的參數名稱"</span>, 參數);
-        FlurryAgent<span class="built_in">.</span>logEvent(<span class="string">"酷酷的功能"</span>, <span class="keyword">params</span>);
-
-        <span class="comment">//...</span>
-
-        <span class="keyword">return</span> <span class="literal">true</span>;
-    }
-
-});
-</code></pre><p>  這樣就結局啦，你只要去Flurry自己帳戶的Dashboard，不但可以收到傳來的資料，Flurry也幫你做好了圖表了，enjoy data-driven development!</p>
-<p>  引用PicCollage Co-founder 的一句話：“We barely make decision. No stupid argument on which color is better for your button. Let users do this job.</p>
-
+          <p>Yahoo去年八月買下Flurry之後推出了一個分析工具，讓developer可以輕易的在app裡想要觀察的<br>Event(按某個按鈕、完成某項交易)種程式碼，加了之後不但可以分析使用者的習慣，還可以追蹤平<br>均使用時間、Retention Rate…等觀察。上禮拜參加完開發者大會後就馬上實做在我們的App裡
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/08/Flurry-Analytics/#more">
+              閱讀全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -326,101 +297,12 @@ convertView<span class="built_in">.</span>setOnLongClickListener(<span class="li
           <h1 id="Handling_Exception">Handling Exception</h1><ol>
 <li><p>Handle specific exception rather than generic exception.</p>
 </li>
-<li><p>You can choose to throw the exception up to the caller of your method</p>
-</li>
-</ol>
-<p>For example :</p>
-<pre><code><span class="function"><span class="keyword">void</span> <span class="title">setServerPort</span><span class="params">(String <span class="keyword">value</span>)</span> throws NumberFormatException </span>{      
-    serverPort = Integer.parse(<span class="keyword">value</span>);      
-}
-</code></pre><ol>
-<li><p>Handle the error gracefully and substitute an appropriate value in the catch {} block.</p>
-</li>
-<li><p>Don’t throw RuntimeException. -&gt; cause application to crash</p>
-</li>
-<li><p>Catch each exception separately as separate catch blocks after a single try.</p>
-</li>
-</ol>
-<h1 id="Fully_Qualify_Imports">Fully Qualify Imports</h1><p>Do this :</p>
-<pre><code><span class="preprocessor"><span class="keyword">import</span> foo.Bar;</span>
-</code></pre><p>instead of :</p>
-<pre><code><span class="preprocessor"><span class="keyword">import</span> foo.*;</span>
-</code></pre><h1 id="Java_Style_Rules">Java Style Rules</h1><h2 id="Use_Javadoc_Standard_Comments">Use Javadoc Standard Comments</h2><pre><code>/<span class="keyword">*</span><span class="keyword">*</span>
- <span class="keyword">*</span>  For example
- <span class="keyword">*</span>/
-</code></pre><ol>
-<li><p>Seperate each block by a blank line.</p>
-</li>
-<li><p>Describe what the class or interface does.</p>
-</li>
-</ol>
-<p>Quoting from official website</p>
-<blockquote>
-<p>Every class and nontrivial public method you write must contain a Javadoc comment with at least one sentence describing what the class or method does. This sentence should start with a 3rd person descriptive verb.</p>
-</blockquote>
-<ol>
-<li>Don’t need to write Javadoc for trivial get and set method..</li>
-</ol>
-<h2 id="Use_Spaces_for_Indentation">Use Spaces for Indentation</h2><blockquote>
-<p>We use 4 space indents for blocks. We never use tabs. When in doubt, be consistent with code around you.</p>
-<p>We use 8 space indents for line wraps, including function calls and assignments. For example, this is correct:</p>
-</blockquote>
-<h2 id="Limit_Variable_Scope">Limit Variable Scope</h2><ol>
-<li>The scope of local variables should be kept to a minimum.</li>
-<li>Each variables should be declared in the innermost block that enclosed all uses of the variable.</li>
-<li>Local variables should be declared at the point they are first used.</li>
-</ol>
-<p><em>Take a look at the below source code</em></p>
-<pre><code><span class="keyword">Set</span> createSet(<span class="keyword">Class</span> <span class="keyword">cl</span>) {
-    <span class="comment">// Instantiate class cl, which represents some sort of Set </span>
-    try {
-        <span class="keyword">return</span> (<span class="keyword">Set</span>) <span class="keyword">cl</span>.newInstance();
-    } catch(IllegalAccessException <span class="keyword">e</span>) {
-        throw new IllegalArgumentException(<span class="keyword">cl</span> + <span class="string">" not accessible"</span>);
-    } catch(InstantiationException <span class="keyword">e</span>) {
-        throw new IllegalArgumentException(<span class="keyword">cl</span> + <span class="string">" not instantiable"</span>);
-    }
-}
-
-...
-
-<span class="comment">// Exercise the set </span>
-<span class="keyword">Set</span> s = createSet(<span class="keyword">cl</span>);
-s.addAll(Arrays.asList(<span class="keyword">args</span>));
-</code></pre><p>With this techniques, we don’t have to declare a variable and initialize it before try block.</p>
-<ol>
-<li>Loop variables should be declared in the for statement.</li>
-</ol>
-<h2 id="Following_Field_Name_Conventions">Following Field Name Conventions</h2><ul>
-<li>Non-public, non-static field names start with m.</li>
-<li>Static field names start with s.</li>
-<li>Other fields start with a lower case letter.</li>
-<li>Public static final fields(constants) are ALL_CAPS_WITH_UNDERSCORES.</li>
-</ul>
-<p>Example:</p>
-<pre><code><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>{
-    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> SOME_CONSTANT = <span class="number">10</span>;
-    <span class="keyword">public</span> <span class="keyword">int</span> publicField;
-    <span class="keyword">private</span> <span class="keyword">static</span> MyClass sSintleton;
-    <span class="keyword">int</span> mPackagePrivate;
-    <span class="keyword">private</span> <span class="keyword">int</span> mPrivate;
-    <span class="keyword">protected</span> <span class="keyword">int</span> mProtected;
-}
-</code></pre><h2 id="Limit_Line_Length">Limit Line Length</h2><ol>
-<li>Each line of text in your code should be at most 100 characters long.</li>
-</ol>
-<h2 id="Use_TODO_Comments">Use TODO Comments</h2><blockquote>
-<p>Use TODO comments for code that is temporary, a short-term solution, or good-enough but not perfect.</p>
-<p>TODOs should include the string TODO in all caps, followed by a colon:</p>
-</blockquote>
-<pre><code>// TODO: Remove this code <span class="keyword">after</span> <span class="operator">the</span> UrlTable2 has been checked <span class="operator">in</span>.
-</code></pre><p>and</p>
-<pre><code>// TODO: Change this <span class="built_in">to</span> use <span class="operator">a</span> flag instead <span class="operator">of</span> <span class="operator">a</span> <span class="built_in">constant</span>.
-</code></pre><blockquote>
-<p>If your TODO is of the form “At a future date do something” make sure that you either include a very specific date (“Fix by November 2005”) or a very specific event (“Remove this code after all production mixers understand protocol V7.”).</p>
-</blockquote>
-<h1 id="Reference"><em>Reference</em></h1><p>[Coding Style Guidelines for Contributors] [<a href="https://source.android.com/source/code-style.html" target="_blank" rel="external">https://source.android.com/source/code-style.html</a>]</p>
-
+<li><p>You can choose to throw the exception up to the caller of your method
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/04/11/Android-Coding-Styles/#more">
+              閱讀全文 &raquo;
+            </a>
+          </div>
         
       
     </div>

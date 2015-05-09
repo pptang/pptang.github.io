@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2015-05-09T04:04:01.000Z</updated>
+  <updated>2015-05-09T04:17:25.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,12 +19,12 @@
     <link href="http://yoursite.com/2015/05/09/dev-exp/"/>
     <id>http://yoursite.com/2015/05/09/dev-exp/</id>
     <published>2015-05-09T02:07:28.000Z</published>
-    <updated>2015-05-09T04:04:01.000Z</updated>
-    <content type="html"><![CDATA[<p>從去年九月開始開發Android到現在，對寫程式這件事有一些想法，大學的時候有幾個專案做得很<br>不好，就會開始想自己或許不適合寫程式這條路，於是選擇去美國唸商學院，當兵的時候規劃了一<br>下自己的職涯，決定以IT consultant為方向前進，想了想，要幫公司解決IT問題，總該先做一<br>些資訊科技的工作，才比較清楚毛出在哪裡，好吧，那先做三到五年的工程師再轉顧問，工作找得<br>算蠻順利，但又要面臨大公司對上新創公司的抉擇，從那時候開始才去了解新創到底是怎麼一回事，<br><a id="more"></a><br>發現哇操新創公司原來這麼有趣，做得很多東西都跟生活很有關係，就去新創公司工作吧，開始寫<br>Android App，雖然過程常常遇到好多問題卡住，但沒有一個不是自己無法解決的(有些Bug覺得<br>自己一輩子都解不掉，隔一兩天後還是能找到辦法)，就這樣一步一步往前進，每天都在學新的東<br>西，從網路、主管、強者我同事、已經很厲害的創業圈朋友們找答案，寫程式有很難嗎？靠是不太<br>容易，但突然想到電影Fury的一句話 The best job I’ve ever had. 我現在滿腦子都是<br>寫程式這件事，想想以前的經驗，會有人因為爛到爆炸而無法寫程式嗎？不可能辣，會有人強翻天<br>你永遠都追不上嗎？不可能辣，聞道有先後，術業有專攻，如此而已，為什麼有人在大學的時候很<br>神，很簡單，因為他比你早進入這個領域，不一定是開始寫程式的時間早，而是比你早滿腦子都是<br>程式這件事，另一方面，為什麼大學的教育沒有讓我滿腦子都是程式呢，我覺得課程的設計根本就<br>是一場災難，雖然那時候都說大一大二是要打好理論基礎，為了更高深的學問，但我們系大一時都<br>會有一定的人數想轉系，不是讀得不好，是不知道讀這以後要幹嘛，資管系明明就是一個這麼棒的<br>系，工作好找到爆炸，有學資訊有學商知道怎麼整合超適合創業，但出事了，課程沒有讓我滿腦子<br>想學習，理論真的很重要，程式寫一寫常會有需求去連結既有的理論及模式，讓解決問題更有效率<br>，就像現在我好想去聽孫媽的課學socket，設計程式架構卡住時好想去上Design pattern的<br>課、跟同事討論Server又好想去旁聽平行處理，這些課大學都有，只是不知道上了可以幹麻，如<br>果是我來設計的話，一進大一一定要上一門三學分一學期的課寫網頁或是寫App，我覺得可行因<br>為我同事也是從沒碰過程式到現在開發很猛的iOS App，網頁跟App都跟我們生活息息相關，會動<br>的又可以直接在自己手機用，做完之後再開始從其中的理論延伸教學，或許這樣大家就會滿腦子都<br>是學習了，總比系上修一整年全台灣最難初等微積分，然後可能有1/3被當或是暑修還要好多了。<br>最後推薦一本書給跟我一樣是新手開發者的人 <em><a href="http://www.books.com.tw/products/0010513685" target="_blank" rel="external">學徒模式</a></em> 希望能一邊學習一邊看這本書，好有幫助的。</p>
+    <updated>2015-05-09T04:17:25.000Z</updated>
+    <content type="html"><![CDATA[<p>從去年九月開始開發Android到現在，對寫程式這件事有一些想法，大學的時候有幾個專案做得很<br>不好，就會開始想自己或許不適合寫程式這條路，於是選擇去美國唸商學院，當兵的時候規劃了一<br>下自己的職涯，決定以IT consultant為方向前進，想了想，要幫公司解決IT問題，總該先做一<a id="more"></a><br>些資訊科技的工作，才比較清楚毛出在哪裡，好吧，那先做三到五年的工程師再轉顧問，工作找得<br>算蠻順利，但又要面臨大公司對上新創公司的抉擇，從那時候開始才去了解新創到底是怎麼一回<br>事，發現哇操新創公司原來這麼有趣，做得很多東西都跟生活很有關係，就去新創公司工作吧，<br>開始寫Android App，雖然過程常常遇到好多問題卡住，但沒有一個不是自己無法解決的(有些<br>Bug覺得自己一輩子都解不掉，隔一兩天後還是能找到辦法)，就這樣一步一步往前進，每天都在<br>學新的東西，從網路、主管、強者我同事、已經很厲害的創業圈朋友們找答案，寫程式有很難嗎？<br>靠是不太容易，但突然想到電影Fury的一句話 The best job I’ve ever had. 我現在滿<br>腦子都是寫程式這件事，想想以前的經驗，會有人因為爛到爆炸而無法寫程式嗎？不可能辣，會有<br>人強翻天你永遠都追不上嗎？不可能辣，聞道有先後，術業有專攻，如此而已，為什麼有人在大學<br>的時候很神，很簡單，因為他比你早進入這個領域，不一定是開始寫程式的時間早，而是比你早滿<br>腦子都是程式這件事，另一方面，為什麼大學的教育沒有讓我滿腦子都是程式呢，我覺得課程的設<br>計根本就是一場災難，雖然那時候都說大一大二是要打好理論基礎，為了更高深的學問，但我們系<br>大一時都會有一定的人數想轉系，不是讀得不好，是不知道讀這以後要幹嘛，資管系明明就是一個<br>這麼棒的系，工作好找到爆炸，有學資訊有學商知道怎麼整合超適合創業，但出事了，課程沒有讓<br>我滿腦子想學習，理論真的很重要，程式寫一寫常會有需求去連結既有的理論及模式，讓解決問題<br>更有效率，就像現在我好想去聽孫媽的課學socket，設計程式架構卡住時好想去上Design<br>pattern的課、跟同事討論Server又好想去旁聽平行處理，這些課大學都有，只是不知道上了可<br>以幹麻，如果是我來設計的話，一進大一一定要上一門三學分一學期的課寫網頁或是寫App，我覺<br>得可行因為我同事也是從沒碰過程式到現在開發很猛的iOS App，網頁跟App都跟我們生活息息相<br>關，會動的又可以直接在自己手機用，做完之後再開始從其中的理論延伸教學，或許這樣大家就會<br>滿腦子都是學習了，總比系上修一整年全台灣最難初等微積分，然後可能有1/3被當或是暑修還要<br>好多了。最後推薦一本書給跟我一樣是新手開發者的人 <em><a href="http://www.books.com.tw/products/0010513685" target="_blank" rel="external">學徒模式</a></em> 希望能一邊學習一邊看這本書，好有幫助的。</p>
 <p>對我來說，工作是為了賺錢，賺錢是為了生活，當工作到沒時間生活的時候，事情就不對勁了，<br>但當如果工作就像是在生活，那真的太爽了！</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>從去年九月開始開發Android到現在，對寫程式這件事有一些想法，大學的時候有幾個專案做得很<br>不好，就會開始想自己或許不適合寫程式這條路，於是選擇去美國唸商學院，當兵的時候規劃了一<br>下自己的職涯，決定以IT consultant為方向前進，想了想，要幫公司解決IT問題，總該先做一<br>些資訊科技的工作，才比較清楚毛出在哪裡，好吧，那先做三到五年的工程師再轉顧問，工作找得<br>算蠻順利，但又要面臨大公司對上新創公司的抉擇，從那時候開始才去了解新創到底是怎麼一回事，<br>]]>
+    <![CDATA[<p>從去年九月開始開發Android到現在，對寫程式這件事有一些想法，大學的時候有幾個專案做得很<br>不好，就會開始想自己或許不適合寫程式這條路，於是選擇去美國唸商學院，當兵的時候規劃了一<br>下自己的職涯，決定以IT consultant為方向前進，想了想，要幫公司解決IT問題，總該先做一]]>
     
     </summary>
     
@@ -37,8 +37,8 @@
     <link href="http://yoursite.com/2015/05/08/Flurry-Analytics/"/>
     <id>http://yoursite.com/2015/05/08/Flurry-Analytics/</id>
     <published>2015-05-08T01:03:53.000Z</published>
-    <updated>2015-05-09T03:54:07.000Z</updated>
-    <content type="html"><![CDATA[<p>Yahoo去年八月買下Flurry之後推出了一個分析工具，讓developer可以輕易的在app裡想要觀察的<br>Event(按某個按鈕、完成某項交易)種程式碼，加了之後不但可以分析使用者的習慣，還可以追蹤平均<br>使用時間、Retention Rate…等觀察。上禮拜參加完開發者大會後就馬上實做在我們的App裡了，<br>下面是step by step教學(我是使用Android Studio開發)：</p>
+    <updated>2015-05-09T04:17:42.000Z</updated>
+    <content type="html"><![CDATA[<p>Yahoo去年八月買下Flurry之後推出了一個分析工具，讓developer可以輕易的在app裡想要觀察的<br>Event(按某個按鈕、完成某項交易)種程式碼，加了之後不但可以分析使用者的習慣，還可以追蹤平<br>均使用時間、Retention Rate…等觀察。上禮拜參加完開發者大會後就馬上實做在我們的App裡<a id="more"></a><br>了，下面是step by step教學(我是使用Android Studio開發)：</p>
 <h1 id="1-_Flurry_Sign_Up">1. <a href="http://www.flurry.com/solutions/analytics" target="_blank" rel="external">Flurry</a> Sign Up</h1><p>  照步驟申請完就會拿到一組API KEY</p>
 <h1 id="2-_下載_FlurryAnalytics-5-3-0-jar">2. 下載 FlurryAnalytics-5.3.0.jar</h1><p>  下載後放在 yourProject/yourModule/libs/ 下，然後去那個module的build.gradle加上：<br>        dependencies {<br>            compile files(‘libs/FlurryAnalytics-5.3.0.jar’)<br>        }</p>
 <h1 id="3-_去Application_or_Activity_Level_下的onCreate_加上兩行：">3. 去Application or Activity Level 下的onCreate 加上兩行：</h1><pre><code><span class="annotation">@Override</span>
@@ -74,7 +74,8 @@ convertView<span class="built_in">.</span>setOnLongClickListener(<span class="li
 <p>  引用PicCollage Co-founder 的一句話：“We barely make decision. No stupid argument on which color is better for your button. Let users do this job.</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>Yahoo去年八月買下Flurry之後推出了一個分析工具，讓developer可以輕易的在app裡想要觀察的<br>Event(按某個按鈕、完成某項交易)種程式碼，加了之後不但可以分析使用者的習慣，還可以追蹤平均<br>使用時間、Retention Rate…等觀察。上禮拜]]>
+    <![CDATA[<p>Yahoo去年八月買下Flurry之後推出了一個分析工具，讓developer可以輕易的在app裡想要觀察的<br>Event(按某個按鈕、完成某項交易)種程式碼，加了之後不但可以分析使用者的習慣，還可以追蹤平<br>均使用時間、Retention Rate…等觀察。上禮拜參加完開發者大會後就馬上實做在我們的App裡]]>
+    
     </summary>
     
       <category term="Tutorial" scheme="http://yoursite.com/tags/Tutorial/"/>
@@ -86,11 +87,11 @@ convertView<span class="built_in">.</span>setOnLongClickListener(<span class="li
     <link href="http://yoursite.com/2015/04/11/Android-Coding-Styles/"/>
     <id>http://yoursite.com/2015/04/11/Android-Coding-Styles/</id>
     <published>2015-04-11T04:05:04.000Z</published>
-    <updated>2015-04-11T04:05:55.000Z</updated>
+    <updated>2015-05-09T04:18:08.000Z</updated>
     <content type="html"><![CDATA[<h1 id="Handling_Exception">Handling Exception</h1><ol>
 <li><p>Handle specific exception rather than generic exception.</p>
 </li>
-<li><p>You can choose to throw the exception up to the caller of your method</p>
+<li><p>You can choose to throw the exception up to the caller of your method<a id="more"></a></p>
 </li>
 </ol>
 <p>For example :</p>
@@ -189,7 +190,8 @@ s.addAll(Arrays.asList(<span class="keyword">args</span>));
     <![CDATA[<h1 id="Handling_Exception">Handling Exception</h1><ol>
 <li><p>Handle specific exception rather than generic exception.</p>
 </li>
-<li><p>You]]>
+<li><p>You can choose to throw the exception up to the caller of your method]]>
+    
     </summary>
     
       <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
@@ -201,8 +203,8 @@ s.addAll(Arrays.asList(<span class="keyword">args</span>));
     <link href="http://yoursite.com/2015/04/10/Open-Source-Tools/"/>
     <id>http://yoursite.com/2015/04/10/Open-Source-Tools/</id>
     <published>2015-04-10T12:34:53.000Z</published>
-    <updated>2015-04-10T14:04:00.000Z</updated>
-    <content type="html"><![CDATA[<p>Since I joined Alpha-Info, I have approached several useful and cutting-edge tools. The best thing among them is that they are all open sources project, which is really good for start-up company. I’m gonna list all tools and briefly sum up where you can use them, although I don’t have full knowledge of some of them.</p>
+    <updated>2015-05-09T04:17:56.000Z</updated>
+    <content type="html"><![CDATA[<p>Since I joined Alpha-Info, I have approached several useful and cutting-edge tools. The best thing among them is that they are all open sources project, which is really good for start-up company. I’m gonna list all tools and<a id="more"></a> briefly sum up where you can use them, although I don’t have full knowledge of some of them.</p>
 <h1 id="1-_Thrift">1. <a href="https://thrift.apache.org/" target="_blank" rel="external">Thrift</a></h1><p>  It’s an amazing tool which facilitates communication between client and server. Take the project I’m working on as an example, our server code is implemented using C++, while client end supports Android and iOS. Traditionally, we should deal with low-level socket and HTTP package. Also, different platforms like Android and iOS have to establish their own channels for sending requests. Thanks god we have <em>Thrift</em> ! All you should do is write a file which defines required class, member functions, variables… and so on. Then, you can generate server and client end codes simultaneously. Anything else? No, we’re all good here.<br>  Using same example above :</p>
 <p>  a. define API in base.thrift file<br>  b. Supposed to use C++ for server code</p>
 <pre><code>thrift -r <span class="comment">--gen cpp base.thrift</span>
@@ -235,7 +237,8 @@ s.addAll(Arrays.asList(<span class="keyword">args</span>));
 <h1 id="10-_HipChat">10. <a href="https://www.hipchat.com/" target="_blank" rel="external">HipChat</a></h1><p>  Group chatting tool which integrates with Gits. Any member pushing code to the Git will show as message on the chatting window.</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>Since I joined Alpha-Info, I have approached several useful and cutting-edge tools. The best thing among them is that they are all open s]]>
+    <![CDATA[<p>Since I joined Alpha-Info, I have approached several useful and cutting-edge tools. The best thing among them is that they are all open sources project, which is really good for start-up company. I’m gonna list all tools and]]>
+    
     </summary>
     
       <category term="Tools" scheme="http://yoursite.com/tags/Tools/"/>
@@ -247,10 +250,10 @@ s.addAll(Arrays.asList(<span class="keyword">args</span>));
     <link href="http://yoursite.com/2015/04/06/Android-Design-Pattern/"/>
     <id>http://yoursite.com/2015/04/06/Android-Design-Pattern/</id>
     <published>2015-04-06T15:04:15.000Z</published>
-    <updated>2015-04-06T15:16:01.000Z</updated>
+    <updated>2015-05-09T04:19:15.000Z</updated>
     <content type="html"><![CDATA[<p>Look around some articles on the net, they said the reason why</p>
 <p>Android dominates a big part of mobile OS market share is the fact</p>
-<p>that it integrates Design patterns into its design philosophy. </p>
+<p>that it integrates Design patterns into its design philosophy.<a id="more"></a> </p>
 <p>Most of them are out of my knowledge, so I list them here and </p>
 <p>will acquire all patterns, one by one.</p>
 <ul>
@@ -280,7 +283,9 @@ s.addAll(Arrays.asList(<span class="keyword">args</span>));
 ]]></content>
     <summary type="html">
     <![CDATA[<p>Look around some articles on the net, they said the reason why</p>
-<p>Android dominates a big part of mobile OS market share is the fact<]]>
+<p>Android dominates a big part of mobile OS market share is the fact</p>
+<p>that it integrates Design patterns into its design philosophy.]]>
+    
     </summary>
     
       <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
@@ -292,10 +297,10 @@ s.addAll(Arrays.asList(<span class="keyword">args</span>));
     <link href="http://yoursite.com/2015/04/06/Weakness/"/>
     <id>http://yoursite.com/2015/04/06/Weakness/</id>
     <published>2015-04-06T14:30:41.000Z</published>
-    <updated>2015-04-06T15:00:59.000Z</updated>
+    <updated>2015-05-09T04:18:39.000Z</updated>
     <content type="html"><![CDATA[<p>從這篇開始分享看學徒模式這本書，邊學邊做的心得，</p>
 <p>首先整理了開始寫Android約半年發現自己的弱點，</p>
-<p>讓自己以後回來檢視是否有改善。</p>
+<p>讓自己以後回來檢視是否有改善。<a id="more"></a></p>
 <p><strong>1. 寫出來的程式再利用性很差</strong></p>
 <p>  舉例來說，有幾個Fragment要呈現的畫面幾乎一樣，</p>
 <p>  卻沒有寫成一個通用的Fragment重複使用，失去Fragment的原意。</p>
@@ -331,9 +336,8 @@ s.addAll(Arrays.asList(<span class="keyword">args</span>));
     <summary type="html">
     <![CDATA[<p>從這篇開始分享看學徒模式這本書，邊學邊做的心得，</p>
 <p>首先整理了開始寫Android約半年發現自己的弱點，</p>
-<p>讓自己以後回來檢視是否有改善。</p>
-<p><strong>1. 寫出來的程式再利用性很差</strong></p>
-<p>  舉例來說，有]]>
+<p>讓自己以後回來檢視是否有改善。]]>
+    
     </summary>
     
       <category term="學徒模式" scheme="http://yoursite.com/tags/%E5%AD%B8%E5%BE%92%E6%A8%A1%E5%BC%8F/"/>
@@ -345,9 +349,9 @@ s.addAll(Arrays.asList(<span class="keyword">args</span>));
     <link href="http://yoursite.com/2014/12/11/AsyncTask/"/>
     <id>http://yoursite.com/2014/12/11/AsyncTask/</id>
     <published>2014-12-11T01:43:43.000Z</published>
-    <updated>2015-04-06T15:03:06.000Z</updated>
+    <updated>2015-05-09T04:18:18.000Z</updated>
     <content type="html"><![CDATA[<p>In Android development, you can’t execute a task longer than 5 secs on main </p>
-<p>thread, so that’s the reason why we need asyncronized task.</p>
+<p>thread, so that’s the reason why we need asyncronized task.<a id="more"></a></p>
 <p>Google provided <strong>Thread</strong>, <strong>AsyncTask</strong>, <strong>Service</strong> for developers, I’ll </p>
 <p>briefly introduce <strong>Thread</strong> and <strong>AsyncTask</strong> in this article. Also, there is </p>
 <p>useful mechanism reffered to <strong>ReentrantLock</strong>. I’ll get to it at the end.</p>
@@ -441,7 +445,8 @@ Runnable r1 = <span class="keyword">new</span> Runnable(){
 </code></pre>]]></content>
     <summary type="html">
     <![CDATA[<p>In Android development, you can’t execute a task longer than 5 secs on main </p>
-<p>thread, so that’s the reason why we need asyncronized]]>
+<p>thread, so that’s the reason why we need asyncronized task.]]>
+    
     </summary>
     
       <category term="Android" scheme="http://yoursite.com/tags/Android/"/>
@@ -453,10 +458,10 @@ Runnable r1 = <span class="keyword">new</span> Runnable(){
     <link href="http://yoursite.com/2014/11/27/Hexo-Blog-Tutorial/"/>
     <id>http://yoursite.com/2014/11/27/Hexo-Blog-Tutorial/</id>
     <published>2014-11-27T01:43:43.000Z</published>
-    <updated>2014-12-11T02:18:59.000Z</updated>
+    <updated>2015-05-09T04:18:28.000Z</updated>
     <content type="html"><![CDATA[<p>This article would be my first tutorial on the ground.</p>
 <p>I’m gonna introduce how to easily use <strong>Hexo</strong> to generate your personal blog.</p>
-<h1 id="1-_Create_new_repository_on_GitHub">1. Create new repository on GitHub</h1><p>To begin with, this blog is built on the gitHub page, so you have to sign in</p>
+<h1 id="1-_Create_new_repository_on_GitHub<!-more->">1. Create new repository on GitHub<a id="more"></a></h1><p>To begin with, this blog is built on the gitHub page, so you have to sign in</p>
 <p>GitHub and create a new repository, which is named <em>GitHub Account name @ github.com</em>.</p>
 <h1 id="2-_Instal_Node-js,_npm,_and_Hexo">2. Instal Node.js, npm, and Hexo</h1><p>For HomeBrew user:</p>
 <pre><code>brew <span class="keyword">install</span> node
@@ -506,7 +511,9 @@ Runnable r1 = <span class="keyword">new</span> Runnable(){
 ]]></content>
     <summary type="html">
     <![CDATA[<p>This article would be my first tutorial on the ground.</p>
-<p>I’m gonna introduce how to easily use <strong>Hexo</strong> to generate you]]>
+<p>I’m gonna introduce how to easily use <strong>Hexo</strong> to generate your personal blog.</p>
+<h1 id="1-_Create_new_repository_on_GitHub<!-more->">1. Create new repository on GitHub]]>
+    
     </summary>
     
       <category term="Tutorial" scheme="http://yoursite.com/tags/Tutorial/"/>
@@ -518,12 +525,12 @@ Runnable r1 = <span class="keyword">new</span> Runnable(){
     <link href="http://yoursite.com/2014/11/26/Introduction/"/>
     <id>http://yoursite.com/2014/11/26/Introduction/</id>
     <published>2014-11-26T03:32:58.000Z</published>
-    <updated>2014-11-26T04:18:34.000Z</updated>
-    <content type="html"><![CDATA[<p><strong>This</strong> blog kicks off since NOV. 26, 2014.<br>One of my friend told me it’s a good way to keep a blog<br>sharing developing process and cleaning up my mind.<br>Creditted to <em>Mr.Jamie</em> after I read his article yesterday,<br>I decided to <em>start doing a thing</em> right after I <em>think about it</em>.<br>So, here we go. This is not my first Blog but I hope it would be the last.<br>Let’s do this.</p>
-<hr>
+    <updated>2015-05-09T04:18:57.000Z</updated>
+    <content type="html"><![CDATA[<p>This blog kicks off since NOV. 26, 2014.<br>One of my friend told me it’s a good way to keep a blog<br>sharing developing process and cleaning up my mind.<a id="more"></a><br>Creditted to <em>Mr.Jamie</em> after I read his article yesterday,<br>I decided to <em>start doing a thing</em> right after I <em>think about it</em>.<br>So, here we go. This is not my first Blog but I hope it would be the last.<br>Let’s do this.</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p><strong>This</strong> blog kicks off since NOV. 26, 2014.<br>One of my friend told me it’s a good way to keep a blog<br>sharing developin]]>
+    <![CDATA[<p>This blog kicks off since NOV. 26, 2014.<br>One of my friend told me it’s a good way to keep a blog<br>sharing developing process and cleaning up my mind.]]>
+    
     </summary>
     
   </entry>

@@ -125,7 +125,7 @@
       
 
       
-        <p>Yahoo去年八月買下Flurry之後推出了一個分析工具，讓developer可以輕易的在app裡想要觀察的<br>Event(按某個按鈕、完成某項交易)種程式碼，加了之後不但可以分析使用者的習慣，還可以追蹤平均<br>使用時間、Retention Rate…等觀察。上禮拜參加完開發者大會後就馬上實做在我們的App裡了，<br>下面是step by step教學(我是使用Android Studio開發)：</p>
+        <p>Yahoo去年八月買下Flurry之後推出了一個分析工具，讓developer可以輕易的在app裡想要觀察的<br>Event(按某個按鈕、完成某項交易)種程式碼，加了之後不但可以分析使用者的習慣，還可以追蹤平<br>均使用時間、Retention Rate…等觀察。上禮拜參加完開發者大會後就馬上實做在我們的App裡<a id="more"></a><br>了，下面是step by step教學(我是使用Android Studio開發)：</p>
 <h1 id="1-_Flurry_Sign_Up">1. <a href="http://www.flurry.com/solutions/analytics" target="_blank" rel="external">Flurry</a> Sign Up</h1><p>  照步驟申請完就會拿到一組API KEY</p>
 <h1 id="2-_下載_FlurryAnalytics-5-3-0-jar">2. 下載 FlurryAnalytics-5.3.0.jar</h1><p>  下載後放在 yourProject/yourModule/libs/ 下，然後去那個module的build.gradle加上：<br>        dependencies {<br>            compile files(‘libs/FlurryAnalytics-5.3.0.jar’)<br>        }</p>
 <h1 id="3-_去Application_or_Activity_Level_下的onCreate_加上兩行：">3. 去Application or Activity Level 下的onCreate 加上兩行：</h1><pre><code><span class="annotation">@Override</span>

@@ -125,7 +125,7 @@
       
 
       
-        <p>Since I joined Alpha-Info, I have approached several useful and cutting-edge tools. The best thing among them is that they are all open sources project, which is really good for start-up company. I’m gonna list all tools and briefly sum up where you can use them, although I don’t have full knowledge of some of them.</p>
+        <p>Since I joined Alpha-Info, I have approached several useful and cutting-edge tools. The best thing among them is that they are all open sources project, which is really good for start-up company. I’m gonna list all tools and<a id="more"></a> briefly sum up where you can use them, although I don’t have full knowledge of some of them.</p>
 <h1 id="1-_Thrift">1. <a href="https://thrift.apache.org/" target="_blank" rel="external">Thrift</a></h1><p>  It’s an amazing tool which facilitates communication between client and server. Take the project I’m working on as an example, our server code is implemented using C++, while client end supports Android and iOS. Traditionally, we should deal with low-level socket and HTTP package. Also, different platforms like Android and iOS have to establish their own channels for sending requests. Thanks god we have <em>Thrift</em> ! All you should do is write a file which defines required class, member functions, variables… and so on. Then, you can generate server and client end codes simultaneously. Anything else? No, we’re all good here.<br>  Using same example above :</p>
 <p>  a. define API in base.thrift file<br>  b. Supposed to use C++ for server code</p>
 <pre><code>thrift -r <span class="comment">--gen cpp base.thrift</span>
